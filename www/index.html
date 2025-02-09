@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PJLA B&iacute;blia</title>
+        <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=3, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" href="css/w3.css">
+            <link rel="stylesheet" href="css/myStyle.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/lib/w3.js"></script>
+        <script type="text/javascript" src="js/lib/hammer.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/biblias/blv.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/biblias/web.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/biblias/nvi.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/biblias/aa.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/biblias/acf.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/biblias/kjv.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/biblias/grc.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/biblias/heb.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/biblias/translit.js"></script>
+       </head>
+
+
+<div id="leitura" class="tela w3-animate-right">
+    <div  class="cabecalho w3-container w3-lime w3-bar" style="position:fixed">
+                    <div class="w3-container">
+                        <img class="w3-btn  w3-medium" onclick="openNav3()" src="img/menu48.png"></img>
+                        <img class="w3-btn  w3-medium" onclick="openNav4()" src="img/lupa48.png"></img>
+                        <br />
+                        <div style="text-align: center">
+                        <button onclick="mostrarMenuLivros()" class="w3-btn  w3-medium" id="nomelivro">Jo&atilde;o</button>
+                        <button onclick="mostrarMenuLeituraCapitulos()" class="w3-btn w3-medium" id="nomecap">1</button>
+                        </div>
+                    </div>
+            
+	</div>
+	<div  class="w3-container">
+            <div class="w3-container"><p>&nbsp;</p></div>
+            <div id="capitulob1" class="w3-panel">
+                    <div id="myElement1"></div>  
+                    <div id="myElement2"></div>  
+            </div>
+            <div class="posicionaBotoesSelecao">
+                <span onclick="abrirTelaMarcacao()" id="marBtn" class="w3-button marBtn"><img src="img/selecionar48.png"></img></span>
+                <span onclick="abrirTelaComparar()" id="cmpBtn" class="w3-button cmpBtn"><img src="img/comparar48.png"></img></span>
+                <span onclick="compartilharTempVersoComentarioNegocio()" id="shaBtn" class="w3-button shaBtn"><img src="img/compartilhar48.png"></img></span>
+            </div>
+    </div>
+
+	<div  id="leiturarodape"></div>
+</div>
+
+<div id="telaComparar" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+               
+		<h2 class="w3-bar-item"><span id="idcomparar_1">Comparar</span></h2>
+	</div>
+	<div  class="w3-container">
+		<div class="w3-panel">
+             <h3><span id="idversoseversoes">Versos e Vers&otilde;es</span></h3>
+		     <div id="listaVersosComparar"></div>
+             <div class="w3-panel w3-center">
+                   <button onclick="desfazerEVoltar()" class="w3-btn w3-border"><span id="idvoltar">Voltar</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="mySidenav3" class="cabecalho sidenav">
+        <a href="javascript:void(0)" class="closebtn3" onclick="closeNav3()">&times;</a>
+        <ul class="w3-ul w3-hoverable w3-center"> 
+		<li onclick="abrirTelaLeitura()"><h4><span id="idtitulo01">Ler</span></h4></li>
+		<li onclick="abrirTela('pesquisandobiblia')"><h4><span id="idtitulo02">Pesquisar</span></h4></li>
+		<li onclick="abrirTelaListando()"><h4><span id="idtitulo03">Hist&oacute;rico</span></h4></li>
+        <li onclick="abrirTelaListandoCores()"><h4><span id="idtitulo03a">Hist&oacute;rico por Cores</span></h4></li>
+		<li onclick="abrirTelaDicionario()"><h4><span id="idtitulo04">Dicion&aacute;rio</span></h4></li>
+		<li onclick="abrirTela('mapas')"><h4><span id="idtitulo05">Mapas</span></h4></li>
+		<li onclick="abrirTelaPlanoEstudo()"><h4><span id="idmenu02">Plano de Estudos</span></h4></li>
+		<li onclick="abrirTelaConfiguracao()"><h4><span id="idtitulo06">Configura&ccedil;&atilde;o</span></h4></li>
+		<li onclick="abrirTelaAjuda()"><h4><span class="w3-text-red">Ajuda</span></h4></li>
+        </ul>
+
+</div>    
+
+<div id="myBotnav" class="cabecalho botnav">
+        <a href="javascript:void(0)" class="closebtn4" onclick="closeNav4()">&times;</a>
+        <input type="text" id="buscasimples" size="30" maxlength="40" class="w3-col s10" class="w3-block">
+        <div class="w3-center"><button id="btnprocurargrifar" class="w3-btn w3-border w3-block" onclick="buscar()">Procurar</button></div>
+</div>    
+
+
+
+
+<div id="mySidenav" class="sidenav">
+	<div  class="w3-container w3-light-grey">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="w3-panel w3-center w3-row">
+          <span onclick="selecaoCor('#ffffff')" class="w3-button w3-col s12"><img src="img/deselectcor32.png"></span>
+          </div>
+          <div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#ffffcc')" class="w3-button w3-col s12" style="background-color:#ffffcc;padding: 32px 32px"></button>
+          </div>
+          <div class="w3-panel w3-center w3-row">   
+          <button onclick="selecaoCor('#ffaa00')" class="w3-button w3-col s12" style="background-color:#ffaa00;padding: 32px 32px"></button>
+          </div><div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#9481e0')" class="w3-button w3-col s12" style="background-color:#9481e0;padding: 32px 32px"></button>
+          </div><div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#00aaff')" class="w3-button w3-col s12" style="background-color:#00aaff;padding: 32px 32px"></button>
+          </div><div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#ffff4d')" class="w3-button w3-col s12" style="background-color:#ffff4d;padding: 32px 32px"></button>
+          </div><div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#66ff33')" class="w3-button w3-col s12" style="background-color:#66ff33;padding: 32px 32px"></button>
+          </div><div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#9acde7')" class="w3-button w3-col s12" style="background-color:#9acde7;padding: 32px 32px"></button>
+          </div><div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#00ffff')" class="w3-button w3-col s12" style="background-color:#00ffff;padding: 32px 32px"></button>
+          </div><div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#cccc00')" class="w3-button w3-col s12" style="background-color:#63e355;padding: 32px 32px"></button>
+          </div>
+          <div class="w3-panel w3-center w3-row">
+            <button onclick="selecaoCor('#f0abac')" class="w3-button w3-col s12" style="background-color:#f0abac;padding: 32px 32px"></button>
+          </div>
+          <div class="w3-panel w3-center w3-row">
+            <button onclick="selecaoCor('#ff0000')" class="w3-button w3-col s12" style="background-color:#ff0000;padding: 32px 32px"></button>
+          </div>
+          <div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#99ffcc')" class="w3-button w3-col s12" style="background-color:#99ffcc;padding: 32px 32px"></button>
+          </div>
+          <div class="w3-panel w3-center w3-row">
+            <button onclick="selecaoCor('#a88c6a')" class="w3-button w3-col s12" style="background-color:#a88c6a;padding: 32px 32px"></button>
+          </div>
+          <div class="w3-panel w3-center w3-row">
+          <button onclick="selecaoCor('#cc33ff')" class="w3-button w3-col s12" style="background-color:#cc33ff;padding: 32px 32px"></button>
+          </div>
+          <div class="w3-panel w3-center w3-row">
+            <button onclick="selecaoCor('#ba6bae')" class="w3-button w3-col s12" style="background-color:#ba6bae;padding: 32px 32px"></button>
+          </div>
+                   <div class="w3-panel w3-center" style='display:none'>
+                                 <h4><span id="idescolhacorq">Escolha uma outra cor</span></h4>
+                                 <input type="color" id="htmlColorPicker" onchange="selecaoCorPicker()" ></input>
+                   </div>
+                </div>
+       </div>
+</div>
+
+<div id="comentarCompartilhar" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar">
+
+		<h2 class="w3-bar-item">
+<span id="idcomentarcompartilhar">Coment&aacute;rios</span></h2>
+	</div>
+	<div  class="w3-container w3-light-grey">
+	       <div class="w3-container">
+		         <h4><span id="idversos_2">Versos</span></h4><div id="listaVersos2"></div>
+           </div>
+           <div class="w3-container w3-card-4 w3-text-black">
+                 <h4><span id="idcomentarios_1">Coment&aacute;rios</span></h4><div id="listaComentarios2"></div>
+                         <textarea id="txtcomentario" rows=5 cols=35></textarea>
+           </div>
+           <div class="w3-container w3-center">
+                       <span onclick="incluirTempComentarioNegocio()" class="w3-btn w3-large w3-border w3-green"><img src="img/mais48.png"></img></span>
+                       <span onclick="excluirTempComentarioNegocio()" id="btnExcluirComentario" class="w3-btn w3-large w3-border w3-disabled w3-red"><img src="img/menos48.png"></img></span>
+                       <span onclick="desfazerEVoltar()" class="w3-btn w3-large w3-border w3-blue"><img src="img/casa48.png"></img></span>
+           </div>
+    </div>
+</div>
+
+<div id="pesquisandobibliacomentario" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar">
+
+		<h2 class="w3-bar-item">
+<span id="idtitulo02_1">Pesquisar</span></h2>
+	</div>
+	<div  class="w3-container w3-light-grey">
+		<div class="w3-container w3-card-4 w3-text-black w3-margin">
+		     <h3><span id="idtotalizador">Totalizadores</span></h3><div id="totalizadores"></div>
+                     <textarea id="txtpesquisandobibliacomentario" rows=5 cols=35></textarea>
+
+                   <div class="w3-container w3-center">
+                   <span onclick="compartilharPesquisandoBiblia()" class="w3-btn w3-large w3-border w3-green"><img src="img/compartilhar32.png"></img></span>
+                   <span onclick="abrirTela('pesquisandobiblia')" class="w3-btn w3-large w3-border w3-blue"><img src="img/casa32.png"></img></span>
+                   </div>
+                </div>
+       </div>
+</div>
+
+
+<div  id="leituralivros" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar">
+
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo01_4" >Ler</span></h2>
+	</div>
+    <br>
+    <div class="w3-container w3-light-gray"><p><span id="idmsg04">Clique em um livro</span></p></div>
+	<div class="w3-panel">
+		<div id="ltextlivros"></div>
+                <button onclick="topFunction()" id="myBtn1" class="topBtn"  title="Go to top"><span id="idtopo_1">Topo</span></button>
+	</div>
+
+	
+</div>
+
+
+<div  id="leituracapitulos" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo01_2" >Ler</span></h2>
+	</div>
+    <br><br><br><br>
+    <div class="w3-container w3-light-gray"><h3><span id="idtxtnr1"></span></h3></div>
+    <div class="w3-container w3-light-gray"><p><span id="idmsg02">Clique em uma n&uacute;mero para abrir o cap&iacute;tulo</span></p></div>
+	<div class="w3-container">
+		<div id="ltextcapitulos"></div>
+	</div>
+</div>
+
+<div  id="leituraversos" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo01_3" >Ler</span></h2>
+	</div>
+    <br><br><br><br>
+    <div class="w3-container w3-light-gray"><h3><span id="idtxtnr2"></span></h3></div>
+    <div class="w3-container w3-light-gray"><p><span id="idmsg03">Clique em uma n&uacute;mero para ir ao vers&iacute;culo</span></p></div>
+	<div class="w3-container">
+		<div id="ltextversos"></div>
+	</div>
+</div>
+
+
+
+<div  id="pesquisandobiblia" class="tela w3-animate-right">
+        <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo02_2">Pesquisar</span></h2>
+	</div>
+
+        <div class="w3-panel w3-red" id="erropesquisandobiblia" style="display:none"></div>
+   	<div class="w3-container">
+            <br />
+            <br />
+            <br />
+            <br />
+		       <div class="w3-row w3-section">
+                        <div class="w3-container">
+                            <input class="w3-input w3-border" id="textoPesquisa" name="textoPesquisa" type="text" placeholder="Texto para pesquisar">
+                        </div>
+               </div>
+               <div class="w3-center" style="margin-bottom: 20px;">
+                        <span onclick="pesquisar()" class="rodape w3-button w3-lime w3-round"><img src="img/lupa48.png"></img></span>
+                        <span id="terceirobotao" onclick='abrirTelaComentarioPesquisar()' class="rodape w3-button w3-lime w3-round w3-disabled"><img src="img/compartilhar48.png"></img></span>
+                        <span onclick="limparResultadoPesquisar()" class="rodape w3-button w3-lime w3-round"><img src="img/borracha48.png"></img></span>
+                   </div>
+	       </div>
+                <div id="saidaPesquisar" style="display:none">
+                        <div class="w3-panel w3-blue">
+                            <h3><span id="idmsg05">Explica&ccedil;&atilde;o</span></h3>
+                            <p><span id="idmsg06">Clique nos totalizadores de cada vers&atilde;o do velho ou novo testamento para detalhar os versos</span></p>
+                        </div>
+		                <div class="w3-row" id="saidaVersoesPortugues">
+			               <div class="w3-container w3-blue w3-center">
+                                        <h2>BLV</h2>
+                                        <div class="w3-row w3-margin">
+                                           <div class="w3-half w3-container w3-red w3-center w3-padding-16 " id="totalVelhoBLV" onclick="abrirtotallivros('pesquisandobiblialivros','velho','BLV')"></div>
+				                               <div class="w3-half w3-container w3-yellow w3-center w3-padding-16 " id="totalNovoBLV" onclick="abrirtotallivros('pesquisandobiblialivros','novo','BLV')"></div>
+                                          </div>
+                                       </div>
+		               </div>
+		               <div class="w3-row" id="saidaVersoesIngles">
+			              <div class="w3-container w3-blue">
+                                        <h2>WEB</h2>
+                                        <div class="w3-row">
+                                           <div class="w3-half w3-container w3-red w3-center w3-padding-16" id="totalVelhoWEB" onclick="abrirtotallivros('pesquisandobiblialivros','velho','WEB')"></div>
+				                           <div class="w3-half w3-container w3-yellow w3-center w3-padding-16" id="totalNovoWEB" onclick="abrirtotallivros('pesquisandobiblialivros','novo','WEB')"></div>
+                                        </div>
+                         </div>
+		               </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+                </div>
+
+        </div>
+</div>
+
+<div  id="pesquisandobiblialivros" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar" style="position: fixed">
+
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo02_3">Pesquisar</span></h2>
+	</div>
+    <br><br><br><br>
+	<div class="w3-container w3-light-grey w3-card-4 w3-margin" id="resultadolivros"></div>
+        <button onclick="topFunction()" id="myBtn2" class="topBtn"  title="Go to top"><span id="idtopo_2">Topo</span></button>
+	
+</div>
+
+<div  id="pesquisandobibliaversos" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar" style="position: fixed">
+
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo02_4">Pesquisar</span>&nbsp;</h2>
+	</div>
+    <div class="cabecalho w3-container w3-lime">
+        <h3 class="w3-center"><span id="nomeDoLivro"></span></h3>
+    </div>
+    <br><br>
+	<div class="w3-container w3-light-grey w3-card-4 w3-margin" id="resultadolivroversos"></div>
+     <button onclick="topFunction()" id="myBtn3" class="topBtn" title="Go to top"><span id="idtopo_3">Topo</span></button>
+
+	
+</div>
+
+<div  id="mapas" class="tela w3-animate-right">
+    <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo05_1">Mapas</span></h2>
+	</div>
+    
+	<div class="w3-container ">
+        <br><br> <br><br>
+		<label><span id="idmsg09">Selecione um mapa para ver</span></label>
+        <ul class="w3-ul w3-hoverable w3-center">
+           <li onclick="carregarMapa(1)"><span id="idmsg10">Mundo Antigo</span></li>
+           <li onclick="carregarMapa(2)"><span id="idmsg11">Egito e Sinai</span></li>
+           <li onclick="carregarMapa(3)"><span id="idmsg12">As 12 Tribos de Israel</span></li>
+           <li onclick="carregarMapa(4)"><span id="idmsg13">Saul, Davi e Salom&atilde;o</span></li>
+           <li onclick="carregarMapa(5)"><span id="idmsg14">Israel e Jud&aacute;</span></li>
+           <li onclick="carregarMapa(6)"><span id="idmsg15">Jerusal&eacute;m no Velho Testamento</span></li>
+           <li onclick="carregarMapa(7)"><span id="idmsg16">Imp&eacute;rio ass&iacute;rio</span></li>
+           <li onclick="carregarMapa(8)"><span id="idmsg17">Imp&eacute;rio persa, babil&ocirc;nio e grego</span></li>
+           <li onclick="carregarMapa(9)"><span id="idmsg18">Imp&eacute;rio romano no tempo de Jesus</span></li>
+           <li onclick="carregarMapa(10)"><span id="idmsg19">Palestina no tempo de Jesus</span></li>
+           <li onclick="carregarMapa(11)"><span id="idmsg20">Jerusal&eacute;m no tempo de Jesus</span></li>
+           <li onclick="carregarMapa(12)"><span id="idmsg21">Plantas do templo</span></li>
+           <li onclick="carregarMapa(13)"><span id="idmsg22">Primeira viagem de Paulo</span></li>
+           <li onclick="carregarMapa(14)"><span id="idmsg23">Segunda viagem de Paulo</span></li>
+           <li onclick="carregarMapa(15)"><span id="idmsg24">Terceira viagem de Paulo</span></li>
+           <li onclick="carregarMapa(16)"><span id="idmsg25">Viagem de Paulo a Roma</span></li>
+           <li onclick="abrirTelaPrincipal()"><span>Voltar</span></li>
+        </ul>
+<p>&nbsp;</p><p>&nbsp;</p>
+	</div>
+
+	
+</div>
+
+<div  id="mapa01" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo05_2" >Mapas</span></h2>
+	</div>
+    <div class="cabecalho w3-container w3-lime">
+       <h3 class="w3-center"><span id="nomeDoMapa"></span></h3>
+    </div> 
+    <br><br> 
+    <div class="w3-panel w3-card-4 w3-light-grey w3-text-blue w3-margin">
+       
+            <p><span id="idmsg29">Gire o smartphone para colocar em modo paisagem</span></p>
+        </div>
+	<div class="w3-container w3-teal w3-center">
+    <span id="meumapa"></span>
+    <p>&nbsp;</p>
+    </div>
+	
+</div>
+
+
+<div  id="dicionario" class="tela w3-animate-right">
+        <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo04_1">Dicion&aacute;rio</span></h2>
+	</div>
+        <div class="w3-container w3-red" id="errodicionario" style="display:none"></div>
+	<div class="w3-container">
+        <br><br><br><br>
+		        <div class="w3-row w3-section">
+                   <div class="w3-rest">
+                      <input class="w3-input w3-border" id="textoPesquisaDicionario" name="textoPesquisaDicionario" type="text" placeholder="Texto para pesquisar no dicion&aacute;rio">
+                   </div>
+                </div>
+                   <div class="w3-container w3-center">
+                        <span onclick="pesquisarDicionario()" class="rodape w3-button w3-lime w3-round"><img src="img/lupa48.png"></img></span>
+                        <span onclick="abrirTela('dicionariocatalogo')" class="rodape w3-button w3-lime w3-round"><img src="img/catalogo48.png"></img></span>
+                        <span onclick="limparDicionario()" class="rodape w3-button w3-lime w3-round"><img src="img/borracha48.png"></img></span>
+                 </div>
+    </div>
+    <div class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin"><span id="saidaDicionario"></span></div>
+</div>
+
+<div id="dicionariocatalogo" class="tela w3-animate-opacity">
+        <div class="cabecalho w3-container w3-lime w3-bar">
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo04_2">Dicion&aacute;rio</span></h2>
+	</div>
+    <div class="cabecalho w3-container w3-lime">
+       <h3 class="w3-center"><span id="idcatalogo_1">Cat&aacute;logo</span></h3>
+    </div> 
+        <div class="w3-panel w3-card-4 w3-light-grey w3-text-blue w3-margin">
+            <p><span id="idmsg26">Clique sobre uma letra para listar as palavras que iniciam com essa letra</span></p>
+        </div>
+	<div class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                <div class="w3-row w3-center">
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('A')">A</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('B')">B</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('C')">C</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('D')">D</div>
+                </div> 
+                <div class="w3-row w3-center">
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('E')">E</div>
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('F')">F</div>
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('G')">G</div>
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('H')">H</div>
+                </div> 
+                <div class="w3-row w3-center">
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('I')">I</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('J')">J</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('K')">K</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('L')">L</div>
+                </div> 
+                <div class="w3-row w3-center">
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('M')">M</div>
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('N')">N</div>
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('O')">O</div>
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('P')">P</div>
+                </div> 
+                <div class="w3-row w3-center">
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('Q')">Q</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('R')">R</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('S')">S</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('T')">T</div>
+                </div> 
+                <div class="w3-row w3-center">
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('U')">U</div>
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('V')">V</div>
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('W')">W</div>
+                     <div class="w3-col s3 " onclick="carregarDicionarioLetra('X')">X</div>
+                </div> 
+                <div class="w3-row w3-center">
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('Y')">Y</div>
+                     <div class="w3-col s3" onclick="carregarDicionarioLetra('Z')">Z</div>
+                     <div class="w3-col s3">&nbsp;</div>
+                     <div class="w3-col s3">&nbsp;</div>
+                </div> 
+        </div>   
+</div>
+
+<div id="dicionariolistapalavras" class="tela w3-animate-opacity">
+        <div  class="cabecalho w3-container w3-lime w3-bar">
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo04_3" onclick="abrirTelaPrincipal()">Dicion&aacute;rio</span></h2>
+	</div>
+	<div class="w3-panel w3-card-4 w3-light-grey w3-text-blue w3-margin">
+            <p><span id="idmsg27">Clique em uma palavra para ver o seu significado</span></p>
+        </div>
+	<div class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+            <div id="listapalavras"></div>
+
+        </div>
+</div>
+
+
+<div id="listandocomentario" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar">
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo03_2">Hist&oacute;rico</span></h2>
+	</div>
+	<div  class="w3-container">
+		<div class="w3-container w3-grey">
+             <h4><span id="idcomentarios_2">Coment&aacute;rios</span></h3>
+             <div id="lcomentarios"></div>
+        </div>
+        <div class="w3-container w3-light-grey w3-card-4 w3-text-black">
+             <p>&nbsp;</p>
+             <textarea id="txtlistandocomentario" rows=5 cols=35></textarea>
+                   <div class="w3-panel w3-center">
+                      <span id="listandocomentariobotao"></span> 
+                      <span onclick="abrirTelaListando()" class="w3-btn w3-border w3-blue"><img src="img/casa32.png"></img></span>
+                   </div>
+             </div>
+       </div>
+</div>
+
+
+<div id="planosestudo" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar" style="position: fixed">
+
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+<span id="idtitulo07_1">Planos de Estudo</span></h2>
+	</div>
+    <br><br><br><br><br>
+	<div  class="w3-container" id="listarplanosestudo"></div>
+</div>
+
+<div id="planosestudover" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar" style="position: fixed">
+ 		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+                    <span id='idtitulo07_2' >Planos de Estudo</span>
+                </h2>
+     </div>
+     <div class="w3-container w3-center">          
+        <br><br><br><br><br>
+		<h4 class="w3-bar-item"><span id='tituloPlanoEstudoSelecionado'></span></h4>
+          <button onclick="rePlano()" id="botaoReiniciar" class="w3-btn w3-yellow w3-center">Reiniciar Plano</button>
+        <button onclick="topFunction()" id="myBtn6" class="topBtn" title="Go to top"><span id="idtopo_7">Topo</span></button>
+
+
+	</div>
+	<div  id="conteudoPlanoEstudoSelecionado" class="w3-container"></div>
+</div>
+
+<div id="acabouplanoestudodia" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar">
+     
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+
+                    <span id='idtitulo07_2' >Planos de Estudo</span>
+                </h2>
+     </div>
+     <div class="w3-container w3-center"><h3><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;<span id="msgenddayread">Dia Finalizado com sucesso</span></h3>
+     <button id="btvoltarPlanoEstudo" class="w3-btn w3-lime" onclick="ultimoPlano()"><span id="msgsaveandreturn">Salvar e Voltar ao Plano de Estudo</span></button></div>
+</div>
+
+<div id="ajuda" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+            <span id="idtitulo09_1">Ajuda</span>
+        </h2>
+	 </div>
+     <div class="w3-container">
+            <div class="w3-container" id="idajuda"></div>
+     </div>    
+</div>
+
+<div  id="listando" class="tela w3-animate-right">
+    <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+        <h2 class="w3-bar-item">
+            <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+            </img>
+            <span id="idtitulo03_1" >Hist&oacute;rico XXX</span>
+        </h2>
+    </div>
+    <div class="w3-container w3-red" id="errolistando" style="display:none"></div>
+    <div class="w3-container">
+        <br />
+        <br />
+        <br />
+        <br />
+        <div id="listandomarcacoes"></div>
+        <button onclick="topFunction()" id="myBtn5" class="topBtn" title="Go to top"><span id="idtopo_5">TopoXXX</span></button>
+    </div>
+</div>
+
+<div  id="configuracao" class="tela w3-animate-opacity">
+    <div  class="cabecalho w3-container w3-lime w3-bar"  style="position:fixed">
+		<h2 class="w3-bar-item">
+             <img class="w3-btn  w3-large" onclick="openNav3()" src="img/menu48.png">
+             </img>
+             <span id="idtitulo06_1">Configura&ccedil;&atilde;o</span>
+            </h2>
+	</div>
+        <div class="w3-panel w3-green" id="msgConfig" style="display:none"></div>
+	<div class="w3-container">
+		<div>
+            <br><br><br><br>
+        <h3><span id="idselecionarcorpadrao">Selecione a cor padr&atilde;o</span></h3>
+            <div class="w3-row">
+                <div class="w3-col s3 w3-red w3-center w3-padding-16" onclick="mudarCor('w3-red')"><p>&nbsp;</p></div>
+                <div class="w3-col s3 w3-green w3-center w3-padding-16" onclick="mudarCor('w3-green')"><p>&nbsp;</p></div>
+                <div class="w3-col s3 w3-blue w3-center w3-padding-16" onclick="mudarCor('w3-blue')"><p>&nbsp;</p></div>
+                <div class="w3-col s3 w3-black w3-center w3-padding-16" onclick="mudarCor('w3-black')"><p>&nbsp;</p></div>
+            </div>
+            <div class="w3-row">
+            <div class="w3-col s3 w3-pink w3-center w3-padding-16" onclick="mudarCor('w3-pink')"><p>&nbsp;</p></div>
+            <div class="w3-col s3 w3-teal w3-center w3-padding-16" onclick="mudarCor('w3-teal')"><p>&nbsp;</p></div>
+            <div class="w3-col s3 w3-indigo w3-center w3-padding-16" onclick="mudarCor('w3-indigo')"><p>&nbsp;</p></div>
+            <div class="w3-col s3 w3-orange w3-text-whie w3-center w3-padding-16" onclick="mudarCor('w3-orange')"><p>&nbsp;</p></div>
+            </div>
+            <div class="w3-row">
+            <div class="w3-col s3 w3-cyan w3-text-white w3-center w3-padding-16" onclick="mudarCor('w3-cyan')"><p>&nbsp;</p></div>
+            <div class="w3-col s3 w3-purple w3-center w3-padding-16" onclick="mudarCor('w3-purple')"><p>&nbsp;</p></div>
+            <div class="w3-col s3 w3-center w3-padding-16 w3-grey" onclick="mudarCor('w3-grey')"><p>&nbsp;</p></div>
+            <div class="w3-col s3 w3-yellow w3-center w3-padding-16" onclick="mudarCor('w3-yellow')"><p>&nbsp;</p></div>
+            </div>
+            <div class="w3-row">
+            <div class="w3-col s4 w3-lime w3-center w3-padding-16" onclick="mudarCor('w3-lime')"><p>&nbsp;</p></div>
+            <div class="w3-col s4 w3-khaki w3-center w3-padding-16" onclick="mudarCor('w3-khaki')"><p>&nbsp;</p></div>
+            <div class="w3-col s4 w3-light-gray w3-center w3-padding-16 w3-border w3-border-black" onclick="mudarCor('w3-light-gray')"><p>&nbsp;</p></div>
+            </div>
+        <h3><span id="idselecionarcorfundo">Selecione a cor de fundo</span></h3>
+                <div class="w3-row">
+                    <div class="w3-col s6 w3-white w3-center w3-padding-16 w3-border w3-border-black" onclick="mudarFundoBranco()"><p>&nbsp;</p></div>
+                    <div class="w3-col s6 w3-black w3-center w3-padding-16 w3-border w3-border-white" onclick="mudarFundoPreto()"><p>&nbsp;</p></div>
+                </div>
+        <h3><span id="idselecionaridioma">Selecione o idioma</span></h3>
+                <div class="w3-center">
+                    <img id="idportugues" class="w3-btn" onclick="idiomaPortugues()" src="img/brazil_flag_64.png"></img>
+                    <img id="idingles" class="w3-btn" onclick="idiomaIngles()" src="img/usa_flag_64.png"></img>
+                </div>
+        <h3><span id="idselecionarfonte">Selecione a fonte</span></h3>
+                <div class="w3-center">
+                    <span id="idfonte0" class="w3-btn w3-large" onclick="escolherFonte0()">Texto</span>
+                    <span id="idfonte1" class="w3-btn w3-large" onclick="escolherFonte1()" style="font-family:'Comic Sans MS', cursive, sans-serif">Texto</span>
+                    <span id="idfonte2" class="w3-btn w3-large" onclick="escolherFonte2()" style="font-family:'Times New Roma', Georgia, Serif">Texto</span>
+                    <span id="idfonte3" class="w3-btn w3-large" onclick="escolherFonte3()" style="font-family:'Courier New', Courier, monospace">Texto</span>
+                </div>
+        <h3><span id="idselecionartamfonte">Selecione o tamanho da fonte</span></h3>
+            <div class="w3-center">
+                    <span id="idtamfonte0" class="w3-btn w3-medium" onclick="escolherTamanhoFonte0()">Normal</span>
+                    <span id="idtamfonte1" class="w3-btn w3-xlarge" onclick="escolherTamanhoFonte1()">Médio</span>
+                   <span id="idtamfonte2" class="w3-btn w3-xxlarge" onclick="escolherTamanhoFonte2()">Grande</span>
+            </div>
+        <h3><span id="idselecionartamfonte">Selecione o tamanho da fonte do Texto Original</span></h3>
+            <div class="w3-center">
+                    <span id="idtamfonteto_red" class="w3-btn w3-medium" onclick="reduzirTamFonteOri()">-</span>
+                    <span id="idtamanhofontetextooriginal" class="w3-medium" ></span>
+                    <span id="idtamfonteto_aum" class="w3-btn w3-medium" onclick="aumentarTamFonteOri()">+</span>
+            </div>    
+        <h3><span id="idselecionartamfonte">Exibição Texto Original</span></h3>
+            <div class="w3-center">
+                    <span id="idnaoexibirto" class="w3-btn w3-medium" onclick="naoExibirTO()">Não Exibir</span>
+                    <span id="idexibirto" class="w3-btn w3-medium" onclick="exibirTO()">Exibir</span>
+            </div>             
+       <h3><span id="idtitulobasedados">Base de Dados</span></h3>
+            <div class="w3-center w3-panel">
+                   <button class="w3-btn w3-red w3-block" id="apagarTodasBases" onclick="zerarBanco()"><span id='idmsgdeletevers'>Apagar versos do hist&oacute;rico?</span></button>
+            </div>
+            <div class="w3-center w3-panel">
+                   <button class="w3-btn w3-red w3-block" id="apagarTodosComentarios" onclick="zerarComentariosBanco()"><span id='idmsgdeletecomments'>Apagar todos os coment&aacute;rios?</span></button>
+            </div>
+
+          </div>
+        
+	</div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+</div>
+
+    	<script type="text/javascript" charset="utf-8" src="js/bases/base1.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="js/bases/base2.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/bases/baseversos.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/strong/greekrefs.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/strong/greekrefdireta.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/strong/greekrefx.js"></script>
+
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/banco.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/leitura.js"></script>
+		<script type="text/javascript" src="js/navegacao.js"></script>
+
+		<script type="text/javascript" src="js/pesquisando.js"></script>
+		<script type="text/javascript" src="js/listando.js"></script>
+		<script type="text/javascript" src="js/dicionario.js"></script>
+		<script type="text/javascript" src="js/configuracao.js"></script>
+		<script type="text/javascript" src="js/mapa.js"></script>
+		<script type="text/javascript" src="js/planosEstudo.js"></script>
+
+</body>
+</html>
