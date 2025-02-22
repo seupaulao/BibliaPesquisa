@@ -57,7 +57,7 @@ ok  - viabilizar navegação : remover forma atual, colocar quadrados de dias
 
 * pensar e colocar o "buy me a coffee" no ajuda/ajude-nos 
 
-* problema base biblica transliteracao e texto original [faltando]
+ok * problema base biblica transliteracao e texto original [faltando]
 
 
 biblia pesquisa 2.2
