@@ -12,7 +12,7 @@
  *
 */
 
-
+          // zera a estrutura do plano    
           function zerarEPlano()
           {
                 ePlano = [];
@@ -168,7 +168,8 @@
              return regArray.length-1;
           }
 
-          //o controle de registros slot, o ultimo digito slot eh controlado somente pela Selecao
+          //o controle de registros slot, o ultimo digito slot eh 
+          // controlado somente pela Selecao
           function controleRegistrosSlot(nome)
           {
              var sobrenome = getSobrenome(0);
@@ -183,6 +184,9 @@
              return nome;
           }
 
+          //eh a funcao basica de salvar chave, valor => salva um valor na chave
+          //eh insert
+          //eh update
           function salvar(nome, str)
           {
              var reg = db.getItem(nome);
@@ -191,6 +195,7 @@
              db.setItem(nome, reg);
           }
 
+          //deleta um registro
           function apagarRegistros(nome)
           {
             db.removeItem(nome);
@@ -352,48 +357,56 @@
            }
          }
 
+         //-------BANCO : PLANO DE ESTUDOS---------
+
+         //pega os itens do slotPlanos
+         function selectPlanos()
+         {
+              return db.getItem("slotPlanos");
+         }
+         
+         //insere na estrutur
          function inserirPlanoEstrutura(sigla, dia)
          {
              ePlano.push({'sigla':sigla, 'dia':dia});
          }
 
-         // function inserirPlanoBanco(sigla, dia)
-         // {
-         //    var str = sigla + "," + dia + ";";
-         //    if (sigla!=undefined && dia!=undefined) salvar("slotPlanos",str);   
-         // }
+         //salva um dia LIDO de um PLANO no BD slotPlanos
+         function inserirPlanoBanco(sigla, dia)
+         {
+             var str = sigla + "," + dia + ";";
+             if (sigla!=undefined && dia!=undefined) salvar("slotPlanos",str);   
+         }
 
-         // function salvarPlanosBanco()
-         // {
-         //    for(var i=0; i<ePlano.length; i++)
-         //    {
-         //      inserirPlanoBanco(ePlano[i].sigla, ePlano[i].dia);
-         //    }
-         // } 
-
-         // function selectPlanos()
-         // {
-         //     return db.getItem("slotPlanos");
-         // }
-
-         // function carregarPlanosBD()
-         // {
-         //    zerarEPlano();
-         //    var bdplanos = selectPlanos();
-         //    if (bdplanos != undefined)
-         //    {
-         //        var planos = bdplanos.split(';');
-         //        for(var i=0; i<planos.length; i++)
-         //        {
-         //           if (planos[i].length > 0)
-         //           {
-         //             var itens = planos[i].split(',');
-         //             itens[0] = itens[0].replace('null','');
-         //             inserirPlanoEstrutura(itens[0], itens[1]); 
-         //           }
-         //        }
-         //    } 
-         // }
+         //salva/atualiza todos os dias LIDOS de varios PLANOS no slotPlanos
+         //os planos sao lidos do vetor estrutura
+         function salvarPlanosBanco()
+         {
+             for(var i=0; i<ePlano.length; i++)
+             {
+               inserirPlanoBanco(ePlano[i].sigla, ePlano[i].dia);
+             }
+         } 
+         
+         // funcao que pega os dados do slotPlanos e coloca no ePlanos
+         function carregarPlanosBD()
+         {
+             zerarEPlano();
+             var bdplanos = selectPlanos();
+             if (bdplanos != undefined)
+             {
+                 var planos = bdplanos.split(';');
+                 for(var i=0; i<planos.length; i++)
+                 {
+                    if (planos[i].length > 0)
+                    {
+                      var itens = planos[i].split(',');
+                      itens[0] = itens[0].replace('null','');
+                      inserirPlanoEstrutura(itens[0], itens[1]); 
+                    }
+                 }
+             } 
+         }
 
          // function contarDiasPlano(siglaPlano)
          // {
@@ -409,20 +422,23 @@
          //    return c; 
          // } 
 
-         // function selectDiasPlano(siglaPlano)
-         // {
-         //    var dp=[];
-         //    carregarPlanosBD();
-         //    for (var i=0; i<ePlano.length; i++)
-         //    {
-         //       if (ePlano[i].sigla == siglaPlano)
-         //       {
-         //          dp.push(ePlano[i].dia);
-         //       }
-         //    }
-         //    return dp;
-         // }
+         // retorna a seleção de todos os dias LIDOS de um PLANO por SIGLA DO PLANO
+         function selectDiasPlano(siglaPlano)
+         {
+             var dp=[];
+             carregarPlanosBD();
+             for (var i=0; i<ePlano.length; i++)
+             {
+                if (ePlano[i].sigla == siglaPlano)
+                {
+                   dp.push(ePlano[i].dia);
+                }
+             }
+             return dp;
+         }
 
+         // buscar no vetor de planos o indice equivalente a
+         // um dado vetor chamado planos a chave
          function buscarNoVetor(planos, chave) 
          {
             var retorno = -1;
@@ -435,6 +451,24 @@
             }
             return retorno; 
          }
+
+         // retornar o indice de um vetor de string
+         // onde cada registro eh uma string separada por virgula
+         // se o primeiro item for a chave entao retornar o indice do registro
+         function buscarIndiceNoVetor(vet, chave) 
+         {
+            var retorno = -1;
+            for (var i=0; i<vet.length; i++)
+            {
+                 if (vet[i].split(',')[0] == chave)
+                 {
+                    retorno = i; break;
+                 }
+            }
+            return retorno; 
+         }
+
+
 
          // function removerUmPlano(siglaPlano)
          // {
@@ -487,19 +521,6 @@
          //    }
          //    return retorno; 
          // }
-
-         function buscarIndiceNoVetor(vet, chave) 
-         {
-            var retorno = -1;
-            for (var i=0; i<vet.length; i++)
-            {
-                 if (vet[i].split(',')[0] == chave)
-                 {
-                    retorno = i; break;
-                 }
-            }
-            return retorno; 
-         }
 
          // function gravarDataInicioEstudoBanco(sigla,data)
          // {

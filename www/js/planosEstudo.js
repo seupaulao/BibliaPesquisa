@@ -1,8 +1,8 @@
 var ultimoPlanoSelecionado;
 
-// var diaPlanoEstudo;
-// getDiaPlanoEstudo=function() { return diaPlanoEstudo; }
-// setDiaPlanoEstudo=function(valor) { diaPlanoEstudo = valor; }
+var diaPlanoEstudo;
+getDiaPlanoEstudo=function() { return diaPlanoEstudo; }
+setDiaPlanoEstudo=function(valor) { diaPlanoEstudo = valor; }
 
 var siglaPlano;
 getSiglaPlano=function(){ return siglaPlano; }
@@ -43,15 +43,6 @@ function carregarDivPlanosEstudo()
      document.getElementById('listarplanosestudo').innerHTML=str;
 }
 
-//TODO: só deve haver um plano de estudo controlado por vez, se quiser começar outro plano tem q encerrar o atual
-//      ou o atual sera substituido pelo novo
-//usado para fechar os controle de leitura e salvar o estado atual do plano ao concluir o dia
-function ultimoPlano()
-{
-  // fecharControleLeitura();
-  carregarPlanoEstudo(ultimoPlanoSelecionado);
-  abrirTela('planosestudover');
-}
 
 // function setarSiglaPlano(plano)
 // {
@@ -78,6 +69,8 @@ function rePlano()
 
 
 // carrega os numeros dos dias com as respectivas leituras 
+// ao exibir os dias, abaixo deve verificar os dias efetivamente lidos e colorir eles
+// se houver dias lidos, entao mostra o botao reiniciar plano
 function carregarPlanoEstudo (plano)
 {
   ultimoPlanoSelecionado = plano;
@@ -85,17 +78,18 @@ function carregarPlanoEstudo (plano)
   abrirTela('planosestudover');
   document.getElementById('tituloPlanoEstudoSelecionado').innerHTML=selecionarTitulo(plano);
   document.getElementById('conteudoPlanoEstudoSelecionado').innerHTML=carregarPlano(plano);
-  // var dp = selectDiasPlano(getSiglaPlano());
-  // if  (dp.length > 0 )
-  // {
-  //    w3.show("#botaoReiniciar")
-  // } else {
-  //    w3.hide("#botaoReiniciar")
-  // }
-  // for(var i=0; i<dp.length; i++)
-  // {
-  //   w3.addClass("#s"+dp[i], "w3-blue");
-  // }
+  var dadosPlano = selectDiasPlano(getSiglaPlano());
+  if  (dadosPlano.length > 0 )
+  {
+      w3.show("#botaoReiniciar")
+  } else {
+      w3.hide("#botaoReiniciar")
+  }
+  for(var i=0; i<dadosPlano.length; i++)
+  {
+    w3.removeClass("#s"+dadosPlano[i], "w3-red");
+    w3.addClass("#s"+dadosPlano[i], "w3-green");
+  }
   
 }
 
@@ -182,10 +176,26 @@ function anoBib3PorDia ()
 function abrirControleLeitura (vetorstring, dia)
 {
   //gravarDataInicioEstudoBanco(getSiglaPlano(), getDataInicioPlano(getSiglaPlano())); 
-  //setDiaPlanoEstudo(dia);
+  setDiaPlanoEstudo(dia);
   abrirTelaLeituraControle(vetorstring);
 }
 
+function fecharControleLeitura()
+ {
+   w3.addClass("#s"+getDiaPlanoEstudo(), "w3-green");
+   inserirPlanoBanco(getSiglaPlano(), getDiaPlanoEstudo());
+   console.log("DIA LIDO:: ", getSiglaPlano(), getDiaPlanoEstudo())
+   carregarPlanosBD();
+ }
+
+//usado para fechar os controle de leitura e salvar o estado atual do plano ao concluir o dia
+function salvarEVoltarPlanoEstudo()
+{
+  fecharControleLeitura();
+  console.log("Ultimo Plano Selecionado::", ultimoPlanoSelecionado);
+  carregarPlanoEstudo(ultimoPlanoSelecionado);
+  abrirTela('planosestudover');
+}
 
 function carregarEnderecoVetorPlanoEstudo()
 {
@@ -236,12 +246,6 @@ function construirVetorPlanoEstudo(vetorstring)
 }
 
 
-// function fecharControleLeitura()
-// {
-//   w3.addClass("#s"+getDiaPlanoEstudo(), "w3-blue");
-//   inserirPlanoBanco(getSiglaPlano(), getDiaPlanoEstudo());
-//   carregarPlanosBD();
-// }
 
 
 //gcap eh a lista de sigla e quantidade de capitulos
@@ -311,7 +315,7 @@ function calculaPlanoBasico (inicial, total, somador, gcap)
     while(contador <= todos)
     {
        var saidaControle=acumulaControleLeitura(contador, somador, gcap, todos); 
-       str += "<div id='s"+dia+"' onclick='abrirControleLeitura(\""+saidaControle+"\","+dia+")'>"; // + dataNac;
+       str += "<div id='s"+dia+"' class='w3-red' onclick='abrirControleLeitura(\""+saidaControle+"\","+dia+")'>"; // + dataNac;
        var tempstr;
        tempstr = "Dia" + dia;
        str += tempstr;
