@@ -477,11 +477,11 @@
              var indice = buscarNoVetor(ePlano, siglaPlano);
              while(indice >= 0)
              {
-                console.log(indice);
+            //    console.log(indice);
                 ePlano.splice(indice, 1);
                 indice = buscarNoVetor(ePlano, siglaPlano);
             }
-             console.log(ePlano);
+         //    console.log(ePlano);
              salvarPlanosBanco();
           } 
  

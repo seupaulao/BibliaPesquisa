@@ -185,7 +185,7 @@ function fecharControleLeitura()
  {
    w3.addClass("#s"+getDiaPlanoEstudo(), "w3-green");
    inserirPlanoBanco(getSiglaPlano(), getDiaPlanoEstudo());
-   console.log("DIA LIDO:: ", getSiglaPlano(), getDiaPlanoEstudo())
+   //console.log("DIA LIDO:: ", getSiglaPlano(), getDiaPlanoEstudo())
    carregarPlanosBD();
  }
 
@@ -193,7 +193,7 @@ function fecharControleLeitura()
 function salvarEVoltarPlanoEstudo()
 {
   fecharControleLeitura();
-  console.log("Ultimo Plano Selecionado::", ultimoPlanoSelecionado);
+  //console.log("Ultimo Plano Selecionado::", ultimoPlanoSelecionado);
   carregarPlanoEstudo(ultimoPlanoSelecionado);
   abrirTela('planosestudover');
 }
