@@ -50,12 +50,15 @@ ok    - pintar dia LIDO de VERDE
 ok      - dizer ao usuario chegar no final e clicar no botao dizendo que acabou o estudo do dia
 ok    - deixar vermelho o dia que falta ser LIDO
 ok    - O Botao REINICIAR PLANO deve zerar a leitura do plano corrente
-      - historico nao esta funcionando 
+ok      - historico nao esta funcionando - nao esta apresentando msg se nao tiver dados
+
+* gerar arte 
+* pensar e colocar o "buy me a coffee" no ajuda/ajude-nos 
+* publicar
 
 OBS : havia uma ideia de um plano por vez, mas o Biblia Pesquisa foi feito para 
       gerenciar multiplos planos, entao segue essa abordagem
 
-* pensar e colocar o "buy me a coffee" no ajuda/ajude-nos 
 
 ok * problema base biblica transliteracao e texto original [faltando]
 

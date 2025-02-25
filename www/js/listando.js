@@ -4,9 +4,13 @@ function setMensagemListando(tipo, msg)
 {
     if (msg.length > 0)
     {
+            console.log('DEVE aparecer o alerta');
+           // document.getElementById("errolistando").setAttribute("style", "display: block");
             document.getElementById("errolistando").innerHTML="<h3>"+tipo+"</h3><p>"+msg+"</p>";
             w3.show("#errolistando");
     } else {
+            console.log('NAO DEVE aparecer o alerta');
+          //  document.getElementById("errolistando").setAttribute("style", "display: none");
             document.getElementById("errolistando").innerHTML="&nbsp;";
             w3.hide("#errolistando");
    } 
@@ -129,8 +133,9 @@ function carregarListandoMarcacoes(id, ordenarPorCores)
            }
            elemento.innerHTML = str+"<p>&nbsp;</p><p>&nbsp;</p>";
    } else {
-      setMensagemListando("Alerta", "Sem versos marcados")
-      elemento.innerHTMl=""; 
+      console.log('Cheguei aqui porque nao tem dados');
+      setMensagemListando("Alerta", "Sem versos marcados");
+      elemento.innerHTML=""; 
       w3.hide("#"+id); 
   }
 

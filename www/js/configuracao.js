@@ -328,7 +328,7 @@ function idiomaPortugues()
 
  document.getElementById("idtitulo03").innerHTML="Hist&oacute;rico";
  document.getElementById("idtitulo03a").innerHTML="Hist&oacute;rico por Cores";
- document.getElementById("idtitulo03_1").innerHTML="Hist&oacute;rico";
+ document.getElementById("idtitulo03_1").innerHTML="Hist&oacute;rico XYZ";
  document.getElementById("idtitulo03_2").innerHTML="Hist&oacute;rico";
  document.getElementById("idtitulo04").innerHTML="Dicion&aacute;rio";
  document.getElementById("idtitulo04_1").innerHTML="Dicion&aacute;rio";
