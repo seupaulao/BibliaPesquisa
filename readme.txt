@@ -43,14 +43,14 @@ ok * limpar libjs e css não usados
 ok * historico - ordenar por cores
 ok * colocar controle de tamanho do texto original  
 ok * exibir/esconder texto original + transliteracao
-* testar o plano de estudo
+ok * testar o plano de estudo
 ok  - nao existe mais botao de ir pro lado, agora o controle é com hammer 
 ok  - viabilizar navegação : remover forma atual, colocar quadrados de dias
 ok    - pintar dia LIDO de VERDE
 ok      - dizer ao usuario chegar no final e clicar no botao dizendo que acabou o estudo do dia
 ok    - deixar vermelho o dia que falta ser LIDO
-    - O Botao REINICIAR PLANO deve zerar a leitura do plano corrente
-    - O Botao REINICIAR DIA deve apagar o estudo efetivado apenas daquele dia
+ok    - O Botao REINICIAR PLANO deve zerar a leitura do plano corrente
+      - historico nao esta funcionando 
 
 OBS : havia uma ideia de um plano por vez, mas o Biblia Pesquisa foi feito para 
       gerenciar multiplos planos, entao segue essa abordagem

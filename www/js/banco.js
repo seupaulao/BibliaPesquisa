@@ -469,21 +469,21 @@
          }
 
 
-
-         // function removerUmPlano(siglaPlano)
-         // {
-         //    carregarPlanosBD();
-         //    db.removeItem('slotPlanos');
-         //    var indice = buscarNoVetor(ePlano, siglaPlano);
-         //    while(indice >= 0)
-         //    {
-         //       console.log(indice);
-         //       ePlano.splice(indice, 1);
-         //       indice = buscarNoVetor(ePlano, siglaPlano);
-         //    }
-         //    console.log(ePlano);
-         //    salvarPlanosBanco();
-         // } 
+         // reinicia um plano de estudo
+          function removerUmPlano(siglaPlano)
+          {
+             carregarPlanosBD();
+             db.removeItem('slotPlanos');
+             var indice = buscarNoVetor(ePlano, siglaPlano);
+             while(indice >= 0)
+             {
+                console.log(indice);
+                ePlano.splice(indice, 1);
+                indice = buscarNoVetor(ePlano, siglaPlano);
+            }
+             console.log(ePlano);
+             salvarPlanosBanco();
+          } 
  
 
          // function existeDataInicio(sigla)

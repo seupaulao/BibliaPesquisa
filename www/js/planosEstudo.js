@@ -62,9 +62,10 @@ function carregarDivPlanosEstudo()
 function rePlano()
 {
    removerUmPlano(getSiglaPlano());
-   removerUmaDataInicio(getSiglaPlano());
+  // removerUmaDataInicio(getSiglaPlano());
    carregarPlanoEstudo(ultimoPlanoSelecionado);
-   abrirTela('planosestudover');
+  // abrirTela('planosestudover');
+  abrirTelaPlanoEstudo()
 }
 
 
