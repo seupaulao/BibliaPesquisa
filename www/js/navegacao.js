@@ -103,7 +103,7 @@ function abrirTelaPlanoEstudo()
 function irpara(versiculo)
 {
        abrirTela("leitura");
-       document.getElementById("leiturarodape").innerHTML="<a id='idvchave1' href='#v"+(versiculo-3)+"'>temp</a>";
+       document.getElementById("leiturarodape").innerHTML="<a id='idvchave1' href='#v"+(versiculo-4)+"'>temp</a>";
        document.getElementById("idvchave1").click();
        document.getElementById("leiturarodape").innerHTML = "";
 }

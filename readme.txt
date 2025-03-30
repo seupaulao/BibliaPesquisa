@@ -51,16 +51,17 @@ ok      - dizer ao usuario chegar no final e clicar no botao dizendo que acabou 
 ok    - deixar vermelho o dia que falta ser LIDO
 ok    - O Botao REINICIAR PLANO deve zerar a leitura do plano corrente
 ok      - historico nao esta funcionando - nao esta apresentando msg se nao tiver dados
-
-* gerar arte 
-* pensar e colocar o "buy me a coffee" no ajuda/ajude-nos 
-* publicar
+ok  - problema base biblica transliteracao e texto original [faltando]
+TESTAR - botao compartilhar nao esta funcionando
+TESTAR - ao clicar no versiculo está indo muito para trás, tentar mover pelo menos 2 versos
+a frente  
+- gerar arte 
+- publicar
 
 OBS : havia uma ideia de um plano por vez, mas o Biblia Pesquisa foi feito para 
       gerenciar multiplos planos, entao segue essa abordagem
 
 
-ok * problema base biblica transliteracao e texto original [faltando]
 
 
 biblia pesquisa 2.2
@@ -72,5 +73,10 @@ biblia pesquisa 2.2
   por default ele desabilita o pinch e o rotate para nao ter element blocking
   - no resto do app por nao usar hammer o zoom funciona de boa 
 
-3. integrar hebraico na solução strong e referencia
-    - usar BSB_TABLES e fazer um arquivo de traducoes para o HEB e GRK   
+3. criar um favoritar/desfavoritar capitulo 
+
+4. dicas de memorização
+
+5. notificação push: dicas de memorização / verso do dia / verso do historico
+
+6. pensar e colocar o "buy me a coffee" no ajuda/ajude-nos 
