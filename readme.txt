@@ -52,16 +52,12 @@ ok    - deixar vermelho o dia que falta ser LIDO
 ok    - O Botao REINICIAR PLANO deve zerar a leitura do plano corrente
 ok      - historico nao esta funcionando - nao esta apresentando msg se nao tiver dados
 ok  - problema base biblica transliteracao e texto original [faltando]
-TESTAR - botao compartilhar nao esta funcionando
-TESTAR - ao clicar no versiculo está indo muito para trás, tentar mover pelo menos 2 versos
-a frente  
+- remover botão compartilhar
+- ao clicar no versiculo está impreciso, corrigir
+- ao alterar para modo claro/escuro cuidado com a fonte dos menus - não está mudando para contrastar  
+- cuidado com o splashscreen, está aparecendo apenas o cordova
 - gerar arte 
 - publicar
-
-OBS : havia uma ideia de um plano por vez, mas o Biblia Pesquisa foi feito para 
-      gerenciar multiplos planos, entao segue essa abordagem
-
-
 
 
 biblia pesquisa 2.2
@@ -79,4 +75,5 @@ biblia pesquisa 2.2
 
 5. notificação push: dicas de memorização / verso do dia / verso do historico
 
-6. pensar e colocar o "buy me a coffee" no ajuda/ajude-nos 
+6. mudar para expo/react ?
+
