@@ -52,10 +52,37 @@ ok    - deixar vermelho o dia que falta ser LIDO
 ok    - O Botao REINICIAR PLANO deve zerar a leitura do plano corrente
 ok      - historico nao esta funcionando - nao esta apresentando msg se nao tiver dados
 ok  - problema base biblica transliteracao e texto original [faltando]
-- remover botão compartilhar
-- ao clicar no versiculo está impreciso, corrigir
+ok  - remover botão compartilhar
+- ao clicar no versiculo do 'ir para' está ok apenas para texto normal 
+  - se texto medio ou grande, ele se perde: adaptar!
+- listagem de livros deve ficar no padrão anterior
+lado a lado : antigo e novo testamento  
+- colocar botão adicional na marcação para 
+  - ver o texto receptus do verso 
+  - ver a transliteração do verso 
+  - ver a referencia cruzada 
+  - ver a base de analise sintatica e tradução  
+- remover do botao de biblia lado-a-lado, a parte do texto receptus [pois sera no comando acima] 
+- tentar colocar item textus receptus original
+  - o item de leitura deve ser o mesmo usado na leitura padrão [livro,capitulo,versiculo]  
 - ao alterar para modo claro/escuro cuidado com a fonte dos menus - não está mudando para contrastar  
 - cuidado com o splashscreen, está aparecendo apenas o cordova
+ok - remover hammer.js 
+ok     - habilitar o zoom na app [se ja não estiver habilitado]
+ok 	   - re-colocar botões avançar, retroceder capítulo
+ok     - remover/comentar gesto puxar pra esquerda e puxar pra direita	
+- juntar links para base do espírito de profecia
+    - ao navegar um texto que esta descrito no EP, habilitar botão
+    que faz um link direto para EGWScripts	
+- compras e propagandas
+   - banner no final 
+   - video
+      - dicionario
+	  - mapas 
+	    1 video a cada 5 acessos
+- habilitar compra do app
+  - remover propagandas
+  - definir preço 2.99 - 8.99 ?? 
 - gerar arte 
 - publicar
 
@@ -68,12 +95,4 @@ biblia pesquisa 2.2
   - problema é o hammer, apenas no div 'capitulob1' que é a leitura, 
   por default ele desabilita o pinch e o rotate para nao ter element blocking
   - no resto do app por nao usar hammer o zoom funciona de boa 
-
-3. criar um favoritar/desfavoritar capitulo 
-
-4. dicas de memorização
-
-5. notificação push: dicas de memorização / verso do dia / verso do historico
-
-6. mudar para expo/react ?
 

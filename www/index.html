@@ -32,8 +32,10 @@
                         <img class="w3-btn  w3-medium" onclick="openNav4()" src="img/lupa48.png"></img>
                         <br />
                         <div style="text-align: center">
+                        <img class="w3-btn  w3-medium" onclick="irParaEsquerda()" src="img/back.png" />
                         <button onclick="mostrarMenuLivros()" class="w3-btn  w3-medium" id="nomelivro">Jo&atilde;o</button>
                         <button onclick="mostrarMenuLeituraCapitulos()" class="w3-btn w3-medium" id="nomecap">1</button>
+                        <img class="w3-btn  w3-medium" onclick="irParaDireita()" src="img/forward.png" />
                         </div>
                     </div>
             
@@ -47,7 +49,7 @@
             <div class="posicionaBotoesSelecao">
                 <span onclick="abrirTelaMarcacao()" id="marBtn" class="w3-button marBtn"><img src="img/selecionar48.png"></img></span>
                 <span onclick="abrirTelaComparar()" id="cmpBtn" class="w3-button cmpBtn"><img src="img/comparar48.png"></img></span>
-                <span onclick="compartilharTempVersoComentarioNegocio()" id="shaBtn" class="w3-button shaBtn"><img src="img/compartilhar48.png"></img></span>
+                <!--span onclick="compartilharTempVersoComentarioNegocio()" id="shaBtn" class="w3-button shaBtn"><img src="img/compartilhar48.png"></img></span-->
             </div>
     </div>
 
@@ -81,6 +83,7 @@
 		<li onclick="abrirTelaDicionario()"><h4><span id="idtitulo04">Dicion&aacute;rio</span></h4></li>
 		<li onclick="abrirTela('mapas')"><h4><span id="idtitulo05">Mapas</span></h4></li>
 		<li onclick="abrirTelaPlanoEstudo()"><h4><span id="idmenu02">Plano de Estudos</span></h4></li>
+        <li onclick="abrirTelaTextusReceptus()"><h4><span id="idmenu03">Textus Receptus</span></h4></li>
 		<li onclick="abrirTelaConfiguracao()"><h4><span id="idtitulo06">Configura&ccedil;&atilde;o</span></h4></li>
 		<li onclick="abrirTelaAjuda()"><h4><span class="w3-text-red">Ajuda</span></h4></li>
         </ul>
@@ -92,9 +95,6 @@
         <input type="text" id="buscasimples" size="30" maxlength="40" class="w3-col s10" class="w3-block">
         <div class="w3-center"><button id="btnprocurargrifar" class="w3-btn w3-border w3-block" onclick="buscar()">Procurar</button></div>
 </div>    
-
-
-
 
 <div id="mySidenav" class="sidenav">
 	<div  class="w3-container w3-light-grey">
@@ -182,7 +182,7 @@
                      <textarea id="txtpesquisandobibliacomentario" rows=5 cols=35></textarea>
 
                    <div class="w3-container w3-center">
-                   <span onclick="compartilharPesquisandoBiblia()" class="w3-btn w3-large w3-border w3-green"><img src="img/compartilhar32.png"></img></span>
+                   <!--<span onclick="compartilharPesquisandoBiblia()" class="w3-btn w3-large w3-border w3-green"><img src="img/compartilhar32.png"></img></span>-->
                    <span onclick="abrirTela('pesquisandobiblia')" class="w3-btn w3-large w3-border w3-blue"><img src="img/casa32.png"></img></span>
                    </div>
                 </div>
@@ -203,7 +203,7 @@
     <div class="w3-container w3-light-gray"><p><span id="idmsg04">Clique em um livro</span></p></div>
 	<div class="w3-panel">
 		<div id="ltextlivros"></div>
-                <button onclick="topFunction()" id="myBtn1" class="topBtn"  title="Go to top"><span id="idtopo_1">Topo</span></button>
+        <button onclick="topFunction()" id="myBtn1" class="topBtn"  title="Go to top"><span id="idtopo_1">Topo</span></button>
 	</div>
 
 	

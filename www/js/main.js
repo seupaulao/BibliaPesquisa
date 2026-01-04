@@ -177,21 +177,30 @@ function numeroCapitulos()
    return base[getLivroMain()].qtecapitulos;
 }
 
-var mc = new Hammer(document.getElementById("capitulob1"));
-mc.on("swipeleft", function(ev) {
-    if (db.getItem("FLAG_USANDO_PLANO_ESTUDO") == 1) {
-        adiantarcapplanoestudo();
-    } else {
-        adiantarcap();
-    }
-});
-mc.on("swiperight", function(ev) {
+// var mc = new Hammer(document.getElementById("capitulob1"));
+
+function irParaEsquerda() {
     if (db.getItem("FLAG_USANDO_PLANO_ESTUDO") == 1) {
         retrocedercapplanoestudo();
     } else {
         retrocedercap();
     }
-});
+}
+
+function irParaDireita() {
+    if (db.getItem("FLAG_USANDO_PLANO_ESTUDO") == 1) {
+        adiantarcapplanoestudo();
+    } else {
+        adiantarcap();
+    }
+}
+
+// mc.on("swipeleft", function(ev) {
+
+// });
+// mc.on("swiperight", function(ev) {
+
+// });
 
 
 function retrocedercap()

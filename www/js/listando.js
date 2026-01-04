@@ -4,12 +4,12 @@ function setMensagemListando(tipo, msg)
 {
     if (msg.length > 0)
     {
-            console.log('DEVE aparecer o alerta');
+           // console.log('DEVE aparecer o alerta');
            // document.getElementById("errolistando").setAttribute("style", "display: block");
             document.getElementById("errolistando").innerHTML="<h3>"+tipo+"</h3><p>"+msg+"</p>";
             w3.show("#errolistando");
     } else {
-            console.log('NAO DEVE aparecer o alerta');
+           // console.log('NAO DEVE aparecer o alerta');
           //  document.getElementById("errolistando").setAttribute("style", "display: none");
             document.getElementById("errolistando").innerHTML="&nbsp;";
             w3.hide("#errolistando");
@@ -41,8 +41,8 @@ function carregarListandoComentarios(nomeelemento, idselecao)
                               
                               str += "<div class='w3-panel "+cor+"'>" + eComentario[j].comentario + "</div><div class='w3-container w3-center'> " +
                                                                          "<span class='w3-btn w3-border w3-blue w3-large' onclick='abrirTelaListandoComentario("+idselecao+","+eComentario[j].id+",\""+eComentario[j].comentario+"\")'><img src='img/comentar32.png'></img></span>" +
-                                                                         "<span class='w3-btn w3-border w3-red w3-large' onclick='listandoExcluirComentario("+idselecao+","+eComentario[j].id+")'><img src='img/menos32.png'></img></span>" +
-                                                                         "<span class='w3-btn w3-border w3-green w3-large' onclick='listandoCompartilharComentario(\""+eComentario[j].comentario+"\")'><img src='img/compartilhar32.png'></img></span></div>";
+                                                                         "<span class='w3-btn w3-border w3-red w3-large' onclick='listandoExcluirComentario("+idselecao+","+eComentario[j].id+")'><img src='img/menos32.png'></img></span>" ;
+                                                                        // "<span class='w3-btn w3-border w3-green w3-large' onclick='listandoCompartilharComentario(\""+eComentario[j].comentario+"\")'><img src='img/compartilhar32.png'></img></span></div>";
                            }
                       }
         }
@@ -99,7 +99,7 @@ function carregarListandoMarcacoes(id, ordenarPorCores)
                                   str += "<div class='w3-panel' style='display:flex; justify-content:center'>";
                                   str += "<span class='w3-btn  w3-blue' onclick='abrirTelaListandoComentario("+idselecao+",null,null)'><img src='img/comentar32.png'></img></span>"
                                   str += "<span class='w3-btn  w3-blue w3-margin-left w3-margin-right' onclick='listandoExcluirSelecaoMarcacao("+idselecao+")'><img src='img/menos32.png'></img></span>"
-                                  str += "<span class='w3-btn  w3-blue' onclick='listandoCompartilharSelecao("+idselecao+")'><img src='img/compartilhar32.png'></img></span>"
+                                 // str += "<span class='w3-btn  w3-blue' onclick='listandoCompartilharSelecao("+idselecao+")'><img src='img/compartilhar32.png'></img></span>"
                                   str +="</div></div>";
                                }
                           }
@@ -123,7 +123,7 @@ function carregarListandoMarcacoes(id, ordenarPorCores)
                              str += "<div class='w3-panel' style='display:flex; justify-content:center'>";
                              str += "<span class='w3-btn  w3-blue' onclick='abrirTelaListandoComentario("+idselecao+",null,null)'><img src='img/comentar32.png'></img></span>"
                              str += "<span class='w3-btn  w3-blue w3-margin-left w3-margin-right' onclick='listandoExcluirSelecaoMarcacao("+idselecao+")'><img src='img/menos32.png'></img></span>"
-                             str += "<span class='w3-btn  w3-blue' onclick='listandoCompartilharSelecao("+idselecao+")'><img src='img/compartilhar32.png'></img></span>"
+                            // str += "<span class='w3-btn  w3-blue' onclick='listandoCompartilharSelecao("+idselecao+")'><img src='img/compartilhar32.png'></img></span>"
                              str +="</div></div>";
                           }
                      }

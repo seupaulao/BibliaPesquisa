@@ -1,5 +1,8 @@
 var telanavegacao = [];
 
+function abrirTelaTextusReceptus() {
+   alert('EM DESENVOLVIMENTO');
+}
 
 //function abrirLivroDtn(sigla) 
 //{
@@ -162,7 +165,7 @@ function desfazer()
    carregar();
    document.getElementById("marBtn").style.display = "none";
    document.getElementById("cmpBtn").style.display = "none";
-   document.getElementById("shaBtn").style.display = "none";
+   // document.getElementById("shaBtn").style.display = "none";
   // document.getElementById("comBtn").style.display = "none";
 }
 
@@ -191,17 +194,17 @@ function abrirTelaAjuda()
    abrirTela("ajuda");
 }
 
-function abrirTelaSermonetes()
-{
-   closeNav3();
-   abrirTela("sermonetes");
-}
+// function abrirTelaSermonetes()
+// {
+//    closeNav3();
+//    abrirTela("sermonetes");
+// }
 
-function abrirTelaMensagens()
-{
-   closeNav3();
-   abrirTela("mensagens");
-}
+// function abrirTelaMensagens()
+// {
+//    closeNav3();
+//    abrirTela("mensagens");
+// }
 
 
 function openNav() {

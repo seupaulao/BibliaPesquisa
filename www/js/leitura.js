@@ -209,7 +209,7 @@ function preselecao(va, livro, cap, verso)
      document.getElementById("marBtn").style.display = "block";
   // openNav();
      document.getElementById("cmpBtn").style.display = "block";
-     document.getElementById("shaBtn").style.display = "block";
+   //  document.getElementById("shaBtn").style.display = "block";
   }
   else {
      var posicao = preselecaocontem(tempmarcacao, va, livro, cap, verso);
@@ -225,7 +225,7 @@ function preselecao(va, livro, cap, verso)
         tempselecao = [];
         document.getElementById("marBtn").style.display = "none";
         document.getElementById("cmpBtn").style.display = "none";
-        document.getElementById("shaBtn").style.display = "none";
+      //  document.getElementById("shaBtn").style.display = "none";
         closeNav();
      }
   }

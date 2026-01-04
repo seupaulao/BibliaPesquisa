@@ -40,7 +40,7 @@
 .marBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
-    bottom: 50px; /* Place the button at the bottom of the page */
+    bottom: 70px; /* Place the button at the bottom of the page */
     left: 15px; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
@@ -62,7 +62,7 @@
 .cmpBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
-    bottom: 120px; /* Place the button at the bottom of the page */
+    bottom: 140px; /* Place the button at the bottom of the page */
     left: 15px; /* Place the button 30px from the right */
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
@@ -80,27 +80,27 @@
     background-color: #555; /* Add a dark-grey background on hover */
 }
 
-.shaBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 190px; /* Place the button at the bottom of the page */
-    left: 15px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: red; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 6px; /* Some padding */
+/* .shaBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 190px; 
+    left: 15px;
+    z-index: 99;
+    border: none; 
+    outline: none;
+    background-color: red; 
+    color: white; 
+    cursor: pointer; 
+    padding: 6px; 
     width: 60px;
     height: 60px;
-    border-radius: 10px; /* Rounded corners */
-}
+    border-radius: 10px; 
+} */
 
 
-.shaBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
-}
+/* .shaBtn:hover {
+    background-color: #555; 
+} */
 
 .fonte1 {
   font-family:'Comic Sans MS', cursive, sans-serif
