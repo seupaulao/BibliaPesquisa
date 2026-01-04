@@ -53,27 +53,35 @@ ok    - O Botao REINICIAR PLANO deve zerar a leitura do plano corrente
 ok      - historico nao esta funcionando - nao esta apresentando msg se nao tiver dados
 ok  - problema base biblica transliteracao e texto original [faltando]
 ok  - remover botão compartilhar
-- ao clicar no versiculo do 'ir para' está ok apenas para texto normal 
-  - se texto medio ou grande, ele se perde: adaptar!
+ok - como eh possivel agora fazer zoom, removi o aumentar e reduzir tamanho da fonte  
+ok - remover hammer.js 
+ok     - habilitar o zoom na app 
+ok 	   - re-colocar botões avançar, retroceder capítulo
+ok     - remover/comentar gesto puxar pra esquerda e puxar pra direita
+
 - listagem de livros deve ficar no padrão anterior
 lado a lado : antigo e novo testamento  
+
 - colocar botão adicional na marcação para 
   - ver o texto receptus do verso 
   - ver a transliteração do verso 
   - ver a referencia cruzada 
   - ver a base de analise sintatica e tradução  
 - remover do botao de biblia lado-a-lado, a parte do texto receptus [pois sera no comando acima] 
-- tentar colocar item textus receptus original
+
+- tentar colocar tela textus receptus original
   - o item de leitura deve ser o mesmo usado na leitura padrão [livro,capitulo,versiculo]  
+
 - ao alterar para modo claro/escuro cuidado com a fonte dos menus - não está mudando para contrastar  
-- cuidado com o splashscreen, está aparecendo apenas o cordova
-ok - remover hammer.js 
-ok     - habilitar o zoom na app [se ja não estiver habilitado]
-ok 	   - re-colocar botões avançar, retroceder capítulo
-ok     - remover/comentar gesto puxar pra esquerda e puxar pra direita	
+
 - juntar links para base do espírito de profecia
     - ao navegar um texto que esta descrito no EP, habilitar botão
-    que faz um link direto para EGWScripts	
+    que faz um link direto para EGWScripts
+    
+- dar espaço entre barra e corpo da tela - verificar espaçamento de pesquisar e configuracao
+  - historico normal e historico com cores
+  - plano de estudo    
+
 - compras e propagandas
    - banner no final 
    - video
@@ -83,16 +91,7 @@ ok     - remover/comentar gesto puxar pra esquerda e puxar pra direita
 - habilitar compra do app
   - remover propagandas
   - definir preço 2.99 - 8.99 ?? 
+- cuidado com o splashscreen, está aparecendo apenas o cordova
 - gerar arte 
 - publicar
-
-
-biblia pesquisa 2.2
-
-1. integrar mapas aos textos
-
-2. zoom na tela 
-  - problema é o hammer, apenas no div 'capitulob1' que é a leitura, 
-  por default ele desabilita o pinch e o rotate para nao ter element blocking
-  - no resto do app por nao usar hammer o zoom funciona de boa 
 
