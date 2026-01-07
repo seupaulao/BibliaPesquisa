@@ -425,10 +425,19 @@ function salvarMarcacaoTela(cor)
 }
 
 
-// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     document.body.scrollTop = 0; // For Chrome, Safari and Opera
     document.documentElement.scrollTop = 0; // For IE and Firefox
     //document.getElementById("comBtn").style.display = "none";
 }
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtnLeitura").style.display = "block";
+  } else {
+    document.getElementById("myBtnLeitura").style.display = "none";
+  }
+}
+
+window.onscroll = function() {scrollFunction()};
 

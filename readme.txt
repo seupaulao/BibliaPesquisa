@@ -55,7 +55,7 @@ ok  - problema base biblica transliteracao e texto original [faltando]
 ok  - remover botão compartilhar
 ok - como eh possivel agora fazer zoom, removi o aumentar e reduzir tamanho da fonte  
 ok  - dar espaço entre barra e corpo da tela - verificar espaçamento de pesquisar e configuracao
-
+ok - botão topo 
 - **habilitar zoom** - PROBLEMA SERIO   
 
 - listagem de livros deve ficar no padrão anterior
