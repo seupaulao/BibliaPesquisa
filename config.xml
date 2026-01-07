@@ -24,10 +24,11 @@
     </platform>
     <preference name="EnableViewportScale" value="true" />
     <platform name="android">
+          <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/splash/splashscreen.xml" />
         <icon monochrome="res/mdpi/monochrome.png" background="res/mdpi/background.png" density="mdpi" foreground="res/mdpi/foreground.png" />
         <icon monochrome="res/hdpi/monochrome.png" background="res/hdpi/background.png" density="hdpi" foreground="res/hdpi/foreground.png" />
-    <icon monochrome="res/xhdpi/monochrome.png" background="res/xhdpi/background.png" density="xhdpi" foreground="res/xhdpi/foreground.png" />
-    <icon monochrome="res/xxhdpi/monochrome.png" background="res/xxhdpi/background.png" density="xxhdpi" foreground="res/xxhdpi/foreground.png" />
-    <icon monochrome="res/xxxhdpi/monochrome.png" background="res/xxxhdpi/background.png" density="xxxhdpi" foreground="res/xxxhdpi/foreground.png" />
+        <icon monochrome="res/xhdpi/monochrome.png" background="res/xhdpi/background.png" density="xhdpi" foreground="res/xhdpi/foreground.png" />
+        <icon monochrome="res/xxhdpi/monochrome.png" background="res/xxhdpi/background.png" density="xxhdpi" foreground="res/xxhdpi/foreground.png" />
+        <icon monochrome="res/xxxhdpi/monochrome.png" background="res/xxxhdpi/background.png" density="xxxhdpi" foreground="res/xxxhdpi/foreground.png" />
     </platform>
 </widget>
