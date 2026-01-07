@@ -56,37 +56,48 @@ ok  - remover botão compartilhar
 ok - como eh possivel agora fazer zoom, removi o aumentar e reduzir tamanho da fonte  
 ok  - dar espaço entre barra e corpo da tela - verificar espaçamento de pesquisar e configuracao
 ok - botão topo 
-- **habilitar zoom** - PROBLEMA SERIO   
+ok - cuidado com o splashscreen, está aparecendo apenas o cordova
+ok - gerar arte 
+- **habilitar zoom** - PROBLEMA - NAO CONSEGUI   
+ok - ao alterar para modo claro/escuro cuidado com a fonte dos menus - não está mudando para contrastar  
 
-- listagem de livros deve ficar no padrão anterior
-lado a lado : antigo e novo testamento  
+ok - listagem de livros deve ficar no padrão anterior - lado a lado : antigo e novo testamento  
 
 - colocar botão adicional na marcação para 
   - ver o texto receptus do verso 
   - ver a transliteração do verso 
-  - ver a referencia cruzada 
-  - ver a base de analise sintatica e tradução  
+  - ver a referencia cruzada
+    - só grego 
+  - ver a base de analise sintatica e tradução
+    - só grego  
   - remover da tela verso-a-verso, a parte do texto receptus
   
 - tentar colocar tela textus receptus original
   - o item de leitura deve ser o mesmo usado na leitura padrão [livro,capitulo,versiculo]  
 
-- ao alterar para modo claro/escuro cuidado com a fonte dos menus - não está mudando para contrastar  
-
 - juntar links para base do espírito de profecia
     - ao navegar um texto que esta descrito no EP, habilitar botão
     que faz um link direto para EGWScripts
-    
+    - botão deve ter comportamento similar ao "Topo" 
+
+- ao alterar o tamanho da fonte de leitura, 
+quando usar o ir para versiculo não consegue ir para o lugar certo
+pois o padrão de scroll está concebido apenas para 
+tamanho de fonte normal 
+
 - compras e propagandas
    - banner no final 
    - video
       - dicionario
 	  - mapas 
 	    1 video a cada 5 acessos
+
 - habilitar compra do app
   - remover propagandas
   - definir preço 2.99 - 8.99 ?? 
-- cuidado com o splashscreen, está aparecendo apenas o cordova
-- gerar arte 
+
 - publicar
 
+Proxima versão 
+  -> trazer a referencia cruzada por numeros 
+  strong do hebraico

@@ -46,9 +46,11 @@ function setPadraoCorFundo(tipo)
   if (tipo==1) {
     document.body.style.backgroundColor="white";
     document.body.style.color="black"; 
+    document.getElementById("mySidenav3").style.backgroundColor="white";
   } else {
     document.body.style.backgroundColor="black";
     document.body.style.color="white";
+    document.getElementById("mySidenav3").style.backgroundColor="darkblue";
   }
   db.setItem("corfundo",tipo);
 }

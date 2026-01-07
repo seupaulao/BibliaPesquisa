@@ -134,7 +134,7 @@ function mostrarMenuLivros()
 {
    desfazer();
    fecharTelaModalControlesLeitura();
-   mostrarLivros();
+  // mostrarLivros();
    abrirTela("leituralivros");
 }
 
