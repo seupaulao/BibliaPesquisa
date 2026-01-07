@@ -177,7 +177,7 @@ function numeroCapitulos()
    return base[getLivroMain()].qtecapitulos;
 }
 
-// var mc = new Hammer(document.getElementById("capitulob1"));
+var mc = new Hammer(document.getElementById("capitulob1"));
 
 function irParaEsquerda() {
     if (db.getItem("FLAG_USANDO_PLANO_ESTUDO") == 1) {
@@ -195,12 +195,12 @@ function irParaDireita() {
     }
 }
 
-// mc.on("swipeleft", function(ev) {
-
-// });
-// mc.on("swiperight", function(ev) {
-
-// });
+mc.on("swiperight", function(ev) {
+irParaEsquerda();
+});
+mc.on("swipeleft", function(ev) {
+irParaDireita();
+});
 
 
 function retrocedercap()

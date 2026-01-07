@@ -37,7 +37,7 @@ function voltarATela(tela)
 
 document.addEventListener("backbutton", onBackKeyDown, false);  
 function onBackKeyDown(e) { 
-   e.preventDefault(); 
+ //  e.preventDefault(); 
    abrirTelaAnterior();
 /*   if (getIdFuncionalidadeBotaoVoltar()=="0") { 
      abrirTelaAnterior();

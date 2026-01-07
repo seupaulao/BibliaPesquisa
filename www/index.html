@@ -28,14 +28,17 @@
 <div id="leitura" class="tela w3-animate-right">
     <div  class="cabecalho w3-container w3-lime w3-bar" style="position:fixed">
                     <div class="w3-container">
-                        <img class="w3-btn  w3-medium" onclick="openNav3()" src="img/menu48.png"></img>
-                        <img class="w3-btn  w3-medium" onclick="openNav4()" src="img/lupa48.png"></img>
-                        <br />
+                        <h2>
+                            <img class="w3-btn  w3-medium" onclick="openNav3()" src="img/menu48.png"></img>
+                            <span>Ler</span>
+                        </h2>
+                        <!--<img class="w3-btn  w3-medium" onclick="openNav4()" src="img/lupa48.png"></img>-->
+                        
                         <div style="text-align: center">
-                        <img class="w3-btn  w3-medium" onclick="irParaEsquerda()" src="img/back.png" />
+                        <!--<img class="w3-btn  w3-medium" onclick="irParaEsquerda()" src="img/back.png" />-->
                         <button onclick="mostrarMenuLivros()" class="w3-btn  w3-medium" id="nomelivro">Jo&atilde;o</button>
                         <button onclick="mostrarMenuLeituraCapitulos()" class="w3-btn w3-medium" id="nomecap">1</button>
-                        <img class="w3-btn  w3-medium" onclick="irParaDireita()" src="img/forward.png" />
+                        <!--<img class="w3-btn  w3-medium" onclick="irParaDireita()" src="img/forward.png" />-->
                         </div>
                     </div>
             
@@ -63,6 +66,7 @@
 	</div>
 	<div  class="w3-container">
 		<div class="w3-panel">
+            <br><br><br>
              <h3><span id="idversoseversoes">Versos e Vers&otilde;es</span></h3>
 		     <div id="listaVersosComparar"></div>
              <div class="w3-panel w3-center">
@@ -349,7 +353,7 @@
 	</div>
     
 	<div class="w3-container ">
-        <br><br> <br><br>
+        <br><br> <br><br><br>
 		<label><span id="idmsg09">Selecione um mapa para ver</span></label>
         <ul class="w3-ul w3-hoverable w3-center">
            <li onclick="carregarMapa(1)"><span id="idmsg10">Mundo Antigo</span></li>
@@ -388,7 +392,7 @@
     <div class="cabecalho w3-container w3-lime">
        <h3 class="w3-center"><span id="nomeDoMapa"></span></h3>
     </div> 
-    <br><br> 
+    <br><br><br> 
     <div class="w3-panel w3-card-4 w3-light-grey w3-text-blue w3-margin">
        
             <p><span id="idmsg29">Gire o smartphone para colocar em modo paisagem</span></p>
@@ -411,7 +415,7 @@
 	</div>
         <div class="w3-container w3-red" id="errodicionario" style="display:none"></div>
 	<div class="w3-container">
-        <br><br><br><br>
+        <br><br><br><br><br>
 		        <div class="w3-row w3-section">
                    <div class="w3-rest">
                       <input class="w3-input w3-border" id="textoPesquisaDicionario" name="textoPesquisaDicionario" type="text" placeholder="Texto para pesquisar no dicion&aacute;rio">
@@ -661,12 +665,12 @@
                     <span id="idfonte2" class="w3-btn w3-large" onclick="escolherFonte2()" style="font-family:'Times New Roma', Georgia, Serif">Texto</span>
                     <span id="idfonte3" class="w3-btn w3-large" onclick="escolherFonte3()" style="font-family:'Courier New', Courier, monospace">Texto</span>
                 </div>
-        <!--<h3><span id="idselecionartamfonte">Selecione o tamanho da fonte</span></h3>
+        <h3><span id="idselecionartamfonte">Selecione o tamanho da fonte</span></h3>
             <div class="w3-center">
                     <span id="idtamfonte0" class="w3-btn w3-medium" onclick="escolherTamanhoFonte0()">Normal</span>
                     <span id="idtamfonte1" class="w3-btn w3-xlarge" onclick="escolherTamanhoFonte1()">Médio</span>
                    <span id="idtamfonte2" class="w3-btn w3-xxlarge" onclick="escolherTamanhoFonte2()">Grande</span>
-            </div>-->
+            </div>
         <h3><span id="idselecionartamfonte">Selecione o tamanho da fonte do Texto Original</span></h3>
             <div class="w3-center">
                     <span id="idtamfonteto_red" class="w3-btn w3-medium" onclick="reduzirTamFonteOri()">-</span>

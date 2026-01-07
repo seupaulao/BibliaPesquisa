@@ -54,10 +54,9 @@ ok      - historico nao esta funcionando - nao esta apresentando msg se nao tive
 ok  - problema base biblica transliteracao e texto original [faltando]
 ok  - remover botão compartilhar
 ok - como eh possivel agora fazer zoom, removi o aumentar e reduzir tamanho da fonte  
-ok - remover hammer.js 
-ok     - habilitar o zoom na app 
-ok 	   - re-colocar botões avançar, retroceder capítulo
-ok     - remover/comentar gesto puxar pra esquerda e puxar pra direita
+ok  - dar espaço entre barra e corpo da tela - verificar espaçamento de pesquisar e configuracao
+
+- **habilitar zoom** - PROBLEMA SERIO   
 
 - listagem de livros deve ficar no padrão anterior
 lado a lado : antigo e novo testamento  
@@ -78,10 +77,6 @@ lado a lado : antigo e novo testamento
     - ao navegar um texto que esta descrito no EP, habilitar botão
     que faz um link direto para EGWScripts
     
-- dar espaço entre barra e corpo da tela - verificar espaçamento de pesquisar e configuracao
-  - historico normal e historico com cores
-  - plano de estudo    
-
 - compras e propagandas
    - banner no final 
    - video
