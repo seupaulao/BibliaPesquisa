@@ -66,8 +66,8 @@ lado a lado : antigo e novo testamento
   - ver a transliteração do verso 
   - ver a referencia cruzada 
   - ver a base de analise sintatica e tradução  
-- remover do botao de biblia lado-a-lado, a parte do texto receptus [pois sera no comando acima] 
-
+  - remover da tela verso-a-verso, a parte do texto receptus
+  
 - tentar colocar tela textus receptus original
   - o item de leitura deve ser o mesmo usado na leitura padrão [livro,capitulo,versiculo]  
 
