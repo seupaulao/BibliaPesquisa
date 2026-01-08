@@ -63,6 +63,8 @@ ok - ao alterar para modo claro/escuro cuidado com a fonte dos menus - não est�
 
 ok - listagem de livros deve ficar no padrão anterior - lado a lado : antigo e novo testamento  
 
+ok - novo esquema de cores para separação de livros em grupos
+
 - colocar botão adicional na marcação para 
   - ver o texto receptus do verso 
   - ver a transliteração do verso 
@@ -71,6 +73,8 @@ ok - listagem de livros deve ficar no padrão anterior - lado a lado : antigo e 
   - ver a base de analise sintatica e tradução
     - só grego  
   - remover da tela verso-a-verso, a parte do texto receptus
+
+- padronizar os icones de : marcação, gramática, comparação, Espírito de Profecia  
   
 - tentar colocar tela textus receptus original
   - o item de leitura deve ser o mesmo usado na leitura padrão [livro,capitulo,versiculo]  

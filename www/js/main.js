@@ -117,9 +117,6 @@ function getIdResultadosPorVersao(versao)
   {
      if (versao=='BLV') setVersaoAtualMain(0);
      else if (versao=='WEB') setVersaoAtualMain(1);
-     else if (versao=='TR') setVersaoAtualMain(2);
-   //  else if (versao=='VRV') setVersaoAtualMain(3);
-  //   else if (versao=='FOB') setVersaoAtualMain(4);
      carregarVersao();
      return getVersaoAtualMain();
   }
@@ -142,9 +139,6 @@ function getSiglaVersaoPorId(id)
    {
       case 0: return "BLV";
       case 1: return "WEB";
-      case 2: return "TR";
- //     case 3: return "VRV";
- //     case 4: return "FOB";
    }
 }
 
@@ -154,9 +148,6 @@ function getNomeVersaoPorId(id)
    {
       case 0: return "Bíblia Livre";
       case 1: return "World English Bible";
-      case 2: return "Textus Receptus Stephanus 1550";
-  //    case 3: return "Version Reina Valera";
-  //    case 4: return "Français Bible";
    }
 }
 
@@ -166,153 +157,10 @@ function carregarVersao()
    {
      case 0: base = blv; break;
      case 1: base = web; break;
-     case 2: base = tr; break;
- //    case 3: base = vrv; break;
- //    case 4: base = fob; break;
    }
 }
 
 function numeroCapitulos()
 {
    return base[getLivroMain()].qtecapitulos;
-}
-
-var mc = new Hammer(document.getElementById("capitulob1"));
-
-function irParaEsquerda() {
-    if (db.getItem("FLAG_USANDO_PLANO_ESTUDO") == 1) {
-        retrocedercapplanoestudo();
-    } else {
-        retrocedercap();
-    }
-}
-
-function irParaDireita() {
-    if (db.getItem("FLAG_USANDO_PLANO_ESTUDO") == 1) {
-        adiantarcapplanoestudo();
-    } else {
-        adiantarcap();
-    }
-}
-
-mc.on("swiperight", function(ev) {
-irParaEsquerda();
-});
-mc.on("swipeleft", function(ev) {
-irParaDireita();
-});
-
-
-function retrocedercap()
-{
-    desfazer();
-    setCapituloMain(getCapituloMain()-1);
-    if (getCapituloMain() < 1){
-        setLivroMain(getLivroMain()-1);
-        if (getLivroMain()<1){
-           setLivroMain(1);
-           setCapituloMain(1);
-        } else {
-           setCapituloMain(numeroCapitulos());
-        }
-    }
-   carregar();
-   topFunction();
-}
-
-function retrocedercaptr()
-{
-    desfazer();
-    setCapituloMain(getCapituloMain()-1);
-    if (getCapituloMain() < 1){
-        setLivroMain(getLivroMain()-1);
-        if (versaoAtual==2)
-        {
-            if (getLivroMain()<=40){
-                setLivroMain(40);
-                setCapituloMain(1);
-            } else {
-              setCapituloMain(numeroCapitulos());
-            }
-        }
-    }
- //  carregarReceptus();
-}
-
-function retrocedercapwlc()
-{
-    desfazer();
-    setCapituloMain(getCapituloMain()-1);
-    if (getCapituloMain() < 1){
-        setLivroMain(getLivroMain()-1);
-        if (getLivroMain()<=1){
-            setLivroMain(1);
-            setCapituloMain(1);
-        } else {
-            setCapituloMain(numeroCapitulos()); 
-        }
-    }
-  // carregarReceptusWlc();
-}
-
-
-
-function adiantarcap()
-{
-   var qte = numeroCapitulos();
-   desfazer();
-   setCapituloMain(getCapituloMain()+1);
-   if (getCapituloMain() > qte)
-   {
-     setLivroMain(getLivroMain()+1);
-     if (getLivroMain() > 66)
-     {
-        setLivroMain(66);
-        setCapituloMain(qte);  
-     }
-     else {
-        setCapituloMain(1);
-     }
-   }
-   carregar();
-   topFunction();
-}
-
-
-function adiantarcaptr()
-{
-   var qte = numeroCapitulos();
-   desfazer();
-   setCapituloMain(getCapituloMain()+1);
-   if (getCapituloMain() > qte)
-   {
-     setLivroMain(getLivroMain()+1);
-       if (getLivroMain() > 66)
-       {
-          setLivroMain(66);
-          setCapituloMain(qte);
-       } else {
-          setCapituloMain(1);
-       }
-   }
- //  carregarReceptus();
-}
-
-function adiantarcapwlc()
-{
-   var qte = numeroCapitulos();
-   desfazer();
-   setCapituloMain(getCapituloMain()+1);
-   if (getCapituloMain() > qte)
-   {
-     setLivroMain(getLivroMain()+1);
-     if (getLivroMain() >= 39)
-     {
-        setLivroMain(39);
-        setCapituloMain(qte);  
-     } else {
-        setCapituloMain(1);
-     }
-   }
- //  carregarReceptusWlc();
 }

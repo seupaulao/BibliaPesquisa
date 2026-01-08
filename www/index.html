@@ -51,6 +51,7 @@
             </div>
             <button onclick="topFunction()" id="myBtnLeitura" class="topBtn"  title="Go to top"><span id="idtopo_1">Topo</span></button>
             <div class="posicionaBotoesSelecao">
+                <span onclick="abrirTelaGramaticaTextusReceptus()" id="graBtn" class="w3-button graBtn"><img src="img/gramatica48.png"></img></span>
                 <span onclick="abrirTelaMarcacao()" id="marBtn" class="w3-button marBtn"><img src="img/selecionar48.png"></img></span>
                 <span onclick="abrirTelaComparar()" id="cmpBtn" class="w3-button cmpBtn"><img src="img/comparar48.png"></img></span>
                 <!--span onclick="compartilharTempVersoComentarioNegocio()" id="shaBtn" class="w3-button shaBtn"><img src="img/compartilhar48.png"></img></span-->
@@ -209,76 +210,76 @@
 	<div class="w3-panel">
 		<div id="ltextlivros" class="container">
             <div id="llvelho" class="fcoluna">
-                <div>Velho Testamento</div>
-                <button onclick='irparalivro(1)'>Genesis</button>
-                <button onclick='irparalivro(2)'>Êxodo</button>
-                <button onclick='irparalivro(3)'>Levítico</button>
-                <button onclick='irparalivro(4)'>Números</button>
-                <button onclick='irparalivro(5)'>Deuteronômio</button>
-                <button onclick='irparalivro(6)'>Josué</button>
-                <button onclick='irparalivro(7)'>Juízes</button>
-                <button onclick='irparalivro(8)'>Rute</button>
-                <button onclick='irparalivro(9)'>1 Samuel</button>
-                <button onclick='irparalivro(10)'>2 Samuel</button>
-                <button onclick='irparalivro(11)'>1 Reis</button>
-                <button onclick='irparalivro(12)'>2 Reis</button>
-                <button onclick='irparalivro(13)'>1 Crônicas</button>
-                <button onclick='irparalivro(14)'>2 Crônicas</button>
-                <button onclick='irparalivro(15)'>Esdras</button>
-                <button onclick='irparalivro(16)'>Neemias</button>
-                <button onclick='irparalivro(17)'>Ester</button>
-                <button onclick='irparalivro(18)'>Jó</button>
-                <button onclick='irparalivro(19)'>Salmos</button>
-                <button onclick='irparalivro(20)'>Provérbios</button>
-                <button onclick='irparalivro(21)'>Eclesiastes</button>
-                <button onclick='irparalivro(22)'>Cantares</button>
-                <button onclick='irparalivro(23)'>Isaías</button>
-                <button onclick='irparalivro(24)'>Jeremias</button>
-                <button onclick='irparalivro(25)'>Lamentações</button>
-                <button onclick='irparalivro(26)'>Ezequiel</button>
-                <button onclick='irparalivro(27)'>Daniel</button>
-                <button onclick='irparalivro(28)'>Oseías</button>
-                <button onclick='irparalivro(29)'>Joel</button>
-                <button onclick='irparalivro(30)'>Amós</button>
-                <button onclick='irparalivro(31)'>Obadias</button>
-                <button onclick='irparalivro(32)'>Jonas</button>
-                <button onclick='irparalivro(33)'>Miquéias</button>
-                <button onclick='irparalivro(34)'>Naum</button>
-                <button onclick='irparalivro(35)'>Habacuque</button>
-                <button onclick='irparalivro(36)'>Sofonias</button>
-                <button onclick='irparalivro(37)'>Ageu</button>
-                <button onclick='irparalivro(38)'>Zacarias</button>
-                <button onclick='irparalivro(39)'>Malaquias</button>
+                <div><b>Velho Testamento</b></div>
+                <button class="w3-btn w3-pale-red" onclick='irparalivro(1)'>Genesis</button>
+                <button class="w3-btn w3-pale-red" onclick='irparalivro(2)'>Êxodo</button>
+                <button class="w3-btn w3-pale-red" onclick='irparalivro(3)'>Levítico</button>
+                <button class="w3-btn w3-pale-red" onclick='irparalivro(4)'>Números</button>
+                <button class="w3-btn w3-pale-red" onclick='irparalivro(5)'>Deuteronômio</button>
+                <button class="w3-btn w3-light-green" onclick='irparalivro(6)'>Josué</button>
+                <button class="w3-btn w3-light-green" onclick='irparalivro(7)'>Juízes</button>
+                <button class="w3-btn w3-light-green" onclick='irparalivro(8)'>Rute</button>
+                <button class="w3-btn w3-light-green" onclick='irparalivro(9)'>1 Samuel</button>
+                <button class="w3-btn w3-light-green" onclick='irparalivro(10)'>2 Samuel</button>
+                <button class="w3-btn w3-light-green" onclick='irparalivro(11)'>1 Reis</button>
+                <button class="w3-btn w3-light-green" onclick='irparalivro(12)'>2 Reis</button>
+                <button class="w3-btn w3-light-green" onclick='irparalivro(13)'>1 Crônicas</button>
+                <button class="w3-btn w3-light-green" onclick='irparalivro(14)'>2 Crônicas</button>
+                <button class="w3-btn w3-lime" onclick='irparalivro(15)'>Esdras</button>
+                <button class="w3-btn w3-lime" onclick='irparalivro(16)'>Neemias</button>
+                <button class="w3-btn w3-lime" onclick='irparalivro(17)'>Ester</button>
+                <button class="w3-btn w3-light-blue" onclick='irparalivro(18)'>Jó</button>
+                <button class="w3-btn w3-light-blue" onclick='irparalivro(19)'>Salmos</button>
+                <button class="w3-btn w3-light-blue" onclick='irparalivro(20)'>Provérbios</button>
+                <button class="w3-btn w3-light-blue" onclick='irparalivro(21)'>Eclesiastes</button>
+                <button class="w3-btn w3-light-blue" onclick='irparalivro(22)'>Cantares</button>
+                <button class="w3-btn w3-khaki" onclick='irparalivro(23)'>Isaías</button>
+                <button class="w3-btn w3-khaki" onclick='irparalivro(24)'>Jeremias</button>
+                <button class="w3-btn w3-khaki" onclick='irparalivro(25)'>Lamentações</button>
+                <button class="w3-btn w3-khaki" onclick='irparalivro(26)'>Ezequiel</button>
+                <button class="w3-btn w3-khaki" onclick='irparalivro(27)'>Daniel</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(28)'>Oseías</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(29)'>Joel</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(30)'>Amós</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(31)'>Obadias</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(32)'>Jonas</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(33)'>Miquéias</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(34)'>Naum</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(35)'>Habacuque</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(36)'>Sofonias</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(37)'>Ageu</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(38)'>Zacarias</button>
+                <button class="w3-btn w3-sand" onclick='irparalivro(39)'>Malaquias</button>
             </div>
             <div id="llnovo" class="fcoluna">
-                <div>Novo Testamento</div>
-                <button onclick='irparalivro(40)'>Mateus</button>
-                <button onclick='irparalivro(41)'>Marcos</button>
-                <button onclick='irparalivro(42)'>Lucas</button>
-                <button onclick='irparalivro(43)'>João</button>
-                <button onclick='irparalivro(44)'>Atos</button>
-                <button onclick='irparalivro(45)'>Romanos</button>
-                <button onclick='irparalivro(46)'>1 Coríntios</button>
-                <button onclick='irparalivro(47)'>2 Coríntios</button>
-                <button onclick='irparalivro(48)'>Gálatas</button>
-                <button onclick='irparalivro(49)'>Efésios</button>
-                <button onclick='irparalivro(50)'>Filipenses</button>
-                <button onclick='irparalivro(51)'>Colossenses</button>
-                <button onclick='irparalivro(52)'>1 Tessalonicenssenses</button>
-                <button onclick='irparalivro(53)'>2 Tessalonicenssenses</button>
-                <button onclick='irparalivro(54)'>1 Timóteo</button>
-                <button onclick='irparalivro(55)'>2 Timóteo</button>
-                <button onclick='irparalivro(56)'>Tito</button>
-                <button onclick='irparalivro(57)'>Filemon</button>
-                <button onclick='irparalivro(58)'>Hebreus</button>
-                <button onclick='irparalivro(59)'>Tiago</button>
-                <button onclick='irparalivro(60)'>1 Pedro</button>
-                <button onclick='irparalivro(61)'>2 Pedro</button>
-                <button onclick='irparalivro(62)'>1 João</button>
-                <button onclick='irparalivro(63)'>2 João</button>
-                <button onclick='irparalivro(64)'>3 João</button>
-                <button onclick='irparalivro(65)'>Judas</button>
-                <button onclick='irparalivro(66)'>Apocalipse</button>
+                <div><b>Novo Testamento</b></div>
+                <button class="w3-btn w3-pale-yellow" onclick='irparalivro(40)'>Mateus</button>
+                <button class="w3-btn w3-pale-yellow" onclick='irparalivro(41)'>Marcos</button>
+                <button class="w3-btn w3-pale-yellow" onclick='irparalivro(42)'>Lucas</button>
+                <button class="w3-btn w3-pale-yellow" onclick='irparalivro(43)'>João</button>
+                <button class="w3-btn w3-pale-yellow" onclick='irparalivro(44)'>Atos</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(45)'>Romanos</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(46)'>1 Coríntios</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(47)'>2 Coríntios</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(48)'>Gálatas</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(49)'>Efésios</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(50)'>Filipenses</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(51)'>Colossenses</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(52)'>1 Tessalonicenssenses</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(53)'>2 Tessalonicenssenses</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(54)'>1 Timóteo</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(55)'>2 Timóteo</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(56)'>Tito</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(57)'>Filemon</button>
+                <button class="w3-btn w3-pale-green" onclick='irparalivro(58)'>Hebreus</button>
+                <button class="w3-btn w3-light-gray" onclick='irparalivro(59)'>Tiago</button>
+                <button class="w3-btn w3-aqua" onclick='irparalivro(60)'>1 Pedro</button>
+                <button class="w3-btn w3-aqua" onclick='irparalivro(61)'>2 Pedro</button>
+                <button class="w3-btn w3-pale-blue" onclick='irparalivro(62)'>1 João</button>
+                <button class="w3-btn w3-pale-blue" onclick='irparalivro(63)'>2 João</button>
+                <button class="w3-btn w3-pale-blue" onclick='irparalivro(64)'>3 João</button>
+                <button class="w3-btn w3-gray" onclick='irparalivro(65)'>Judas</button>
+                <button class="w3-btn w3-yellow" onclick='irparalivro(66)'>Apocalipse</button>
 
             </div>
         </div>

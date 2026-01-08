@@ -1,8 +1,6 @@
 var telanavegacao = [];
 
-function abrirTelaTextusReceptus() {
-   alert('EM DESENVOLVIMENTO');
-}
+
 
 //function abrirLivroDtn(sigla) 
 //{
@@ -35,16 +33,6 @@ function voltarATela(tela)
 }
 
 
-document.addEventListener("backbutton", onBackKeyDown, false);  
-function onBackKeyDown(e) { 
- //  e.preventDefault(); 
-   abrirTelaAnterior();
-/*   if (getIdFuncionalidadeBotaoVoltar()=="0") { 
-     abrirTelaAnterior();
-   } else {
-     abrirTelaPrincipal();
-   } */
-}
 
 function abrirTelaAnterior()
 {
@@ -128,7 +116,6 @@ function irparalivro(ibk)
     abrirTela('leituracapitulos');
     topFunction();
 }
-
 
 function mostrarMenuLivros()
 {
@@ -245,43 +232,43 @@ function closeNav4() {
 }
 
 
-function abrirTelaLeituraTextoOriginal()
-{
-  abrirTela('princtextooriginal');
-}
+// function abrirTelaLeituraTextoOriginal()
+// {
+//   abrirTela('princtextooriginal');
+// }
 
-function abrirTelaTextoOriginalLeitura(versao)
-{
-  w3.show("#fontetr");
-  w3.hide("#fontewlc");
-  setVersaoAtualMain(versao);
-  setLivroMain(43);
-  setCapituloMain(1);
-  carregarVersao();
-  //carregarReceptus();
-  //carregarReceptusWlc();
-  abrirTela('telaleituratextooriginal');
-}
+// function abrirTelaTextoOriginalLeitura(versao)
+// {
+//   w3.show("#fontetr");
+//   w3.hide("#fontewlc");
+//   setVersaoAtualMain(versao);
+//   setLivroMain(43);
+//   setCapituloMain(1);
+//   carregarVersao();
+//   //carregarReceptus();
+//   //carregarReceptusWlc();
+//   abrirTela('telaleituratextooriginal');
+// }
 
-function abrirTelaTextoOriginalLeituraGr()
-{
-  abrirTelaTextoOriginalLeitura(2);
-}
+// function abrirTelaTextoOriginalLeituraGr()
+// {
+//   abrirTelaTextoOriginalLeitura(2);
+// }
 
 
 
-function abrirTelaTextoOriginalLeituraHb()
-{
-  w3.show("#fontewlc");
-  w3.hide("#fontetr");
-  setVersaoAtualMain(0);
-  setLivroMain(1);
-  setCapituloMain(1);
-  carregarVersao();
-  //carregarReceptusWlc();
-  abrirTela('telaleituratextooriginal');
+// function abrirTelaTextoOriginalLeituraHb()
+// {
+//   w3.show("#fontewlc");
+//   w3.hide("#fontetr");
+//   setVersaoAtualMain(0);
+//   setLivroMain(1);
+//   setCapituloMain(1);
+//   carregarVersao();
+//   //carregarReceptusWlc();
+//   abrirTela('telaleituratextooriginal');
 
-}
+// }
 
 /*
 function abrirTelaDetalharTR()
@@ -425,6 +412,16 @@ function salvarMarcacaoTela(cor)
 }
 
 
+function abrirTelaGramaticaTextusReceptus() {
+   alert('EM DESENVOLVIMENTO');
+}
+
+function abrirTelaTextusReceptus() {
+   alert('EM DESENVOLVIMENTO');
+}
+
+// ------------------ SECAO DE CONTROLE DO BOTAO TOPO - LEITURA -------------------
+
 function topFunction() {
     document.body.scrollTop = 0; // For Chrome, Safari and Opera
     document.documentElement.scrollTop = 0; // For IE and Firefox
@@ -439,5 +436,155 @@ function scrollFunction() {
   }
 }
 
+
 window.onscroll = function() {scrollFunction()};
 
+
+// ------------------ SECAO DE MOVIMENTACAO NA LEITURA -------------------
+
+var mc = new Hammer(document.getElementById("capitulob1"));
+
+function irParaEsquerda() {
+    if (db.getItem("FLAG_USANDO_PLANO_ESTUDO") == 1) {
+        retrocedercapplanoestudo();
+    } else {
+        retrocedercap();
+    }
+}
+
+function irParaDireita() {
+    if (db.getItem("FLAG_USANDO_PLANO_ESTUDO") == 1) {
+        adiantarcapplanoestudo();
+    } else {
+        adiantarcap();
+    }
+}
+
+mc.on("swiperight", function(ev) {
+irParaEsquerda();
+});
+mc.on("swipeleft", function(ev) {
+irParaDireita();
+});
+
+
+function retrocedercap()
+{
+    desfazer();
+    setCapituloMain(getCapituloMain()-1);
+    if (getCapituloMain() < 1){
+        setLivroMain(getLivroMain()-1);
+        if (getLivroMain()<1){
+           setLivroMain(1);
+           setCapituloMain(1);
+        } else {
+           setCapituloMain(numeroCapitulos());
+        }
+    }
+   carregar();
+   topFunction();
+}
+
+function retrocedercaptr()
+{
+    desfazer();
+    setCapituloMain(getCapituloMain()-1);
+    if (getCapituloMain() < 1){
+        setLivroMain(getLivroMain()-1);
+        if (versaoAtual==2)
+        {
+            if (getLivroMain()<=40){
+                setLivroMain(40);
+                setCapituloMain(1);
+            } else {
+              setCapituloMain(numeroCapitulos());
+            }
+        }
+    }
+ //  carregarReceptus();
+}
+
+function retrocedercapwlc()
+{
+    desfazer();
+    setCapituloMain(getCapituloMain()-1);
+    if (getCapituloMain() < 1){
+        setLivroMain(getLivroMain()-1);
+        if (getLivroMain()<=1){
+            setLivroMain(1);
+            setCapituloMain(1);
+        } else {
+            setCapituloMain(numeroCapitulos()); 
+        }
+    }
+  // carregarReceptusWlc();
+}
+
+
+
+function adiantarcap()
+{
+   var qte = numeroCapitulos();
+   desfazer();
+   setCapituloMain(getCapituloMain()+1);
+   if (getCapituloMain() > qte)
+   {
+     setLivroMain(getLivroMain()+1);
+     if (getLivroMain() > 66)
+     {
+        setLivroMain(66);
+        setCapituloMain(qte);  
+     }
+     else {
+        setCapituloMain(1);
+     }
+   }
+   carregar();
+   topFunction();
+}
+
+
+function adiantarcaptr()
+{
+   var qte = numeroCapitulos();
+   desfazer();
+   setCapituloMain(getCapituloMain()+1);
+   if (getCapituloMain() > qte)
+   {
+     setLivroMain(getLivroMain()+1);
+       if (getLivroMain() > 66)
+       {
+          setLivroMain(66);
+          setCapituloMain(qte);
+       } else {
+          setCapituloMain(1);
+       }
+   }
+ //  carregarReceptus();
+}
+
+function adiantarcapwlc()
+{
+   var qte = numeroCapitulos();
+   desfazer();
+   setCapituloMain(getCapituloMain()+1);
+   if (getCapituloMain() > qte)
+   {
+     setLivroMain(getLivroMain()+1);
+     if (getLivroMain() >= 39)
+     {
+        setLivroMain(39);
+        setCapituloMain(qte);  
+     } else {
+        setCapituloMain(1);
+     }
+   }
+ //  carregarReceptusWlc();
+}
+
+// -------------- TRATAMENTO BACKBUTTON --------------
+document.addEventListener("backbutton", onBackKeyDown, false);  
+function onBackKeyDown(e) { 
+   e.preventDefault(); 
+   abrirTelaAnterior();
+}
