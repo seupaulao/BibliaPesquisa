@@ -136,35 +136,34 @@ function carregar()  {
    setLivroCapituloBD(getLivroMain(), getCapituloMain());
    if (bbuscasimples)
    {
-       var t1 = extrairVerso(getLivroMain(), getCapituloMain(), getVersiculoMain());
+      let t1 = extrairVerso(getLivroMain(), getCapituloMain(), getVersiculoMain());
 	   while (t1 != null)
 	   {
-		  rx1=new RegExp(buscasimples.value,"g");
-		  t1 = t1.replace(rx1, "<b>"+buscasimples.value+"</b>");
-                  detalhe = detalhe + escreveMarcacao(t1, getVersaoAtualMain(), getLivroMain(), getCapituloMain(), getVersiculoMain());
-     	          setVersiculoMain(getVersiculoMain()+1);
-		  t1 = extrairVerso(getLivroMain(), getCapituloMain(), getVersiculoMain());
+		   rx1=new RegExp(buscasimples.value,"g");
+		   t1 = t1.replace(rx1, "<b>"+buscasimples.value+"</b>");
+         detalhe = detalhe + escreveMarcacao(t1, getVersaoAtualMain(), getLivroMain(), getCapituloMain(), getVersiculoMain());
+     	   setVersiculoMain(getVersiculoMain()+1);
+		   t1 = extrairVerso(getLivroMain(), getCapituloMain(), getVersiculoMain());
 	   }
    } else {
-           document.getElementById("capitulob1").innerHTML = "";
+         document.getElementById("capitulob1").innerHTML = "";
 
-           var t1 = extrairVerso(getLivroMain(), getCapituloMain(), getVersiculoMain());
-	       while (t1 != null)
-	       {
-             if (getExibirTO() == 1) {
-                let oo = extrairVersoBaseTranslit(getLivroMain(), getCapituloMain(), getVersiculoMain(), false);
-                let oot = extrairVersoBaseTranslit(getLivroMain(), getCapituloMain(), getVersiculoMain(), true);
+         let t1 = extrairVerso(getLivroMain(), getCapituloMain(), getVersiculoMain());
+	      while (t1 != null) {
+            if (getExibirTO() == 1) {
+               let oo = extrairVersoBaseTranslit(getLivroMain(), getCapituloMain(), getVersiculoMain(), false);
+               let oot = extrairVersoBaseTranslit(getLivroMain(), getCapituloMain(), getVersiculoMain(), true);
                detalhe = detalhe + 
                escreveMarcacao(t1, getVersaoAtualMain(), getLivroMain(), getCapituloMain(), getVersiculoMain())
                + "<p style='font-size: "+tamanhoFonteTextoOriginal+"px'>"+ oo + "</p>"
                + "<p>"+ oot + "</p>";
-             } else {
-                detalhe = detalhe + 
+            } else {
+               detalhe = detalhe + 
                           escreveMarcacao(t1, getVersaoAtualMain(), getLivroMain(), getCapituloMain(), getVersiculoMain());
-             }
-	          setVersiculoMain(getVersiculoMain()+1);
-        		 t1 = extrairVerso(getLivroMain(), getCapituloMain(), getVersiculoMain());
-	       }
+            }
+	         setVersiculoMain(getVersiculoMain()+1);
+        		t1 = extrairVerso(getLivroMain(), getCapituloMain(), getVersiculoMain());
+	      }
 
     }
 

@@ -65,20 +65,14 @@ ok - listagem de livros deve ficar no padrão anterior - lado a lado : antigo e 
 
 ok - novo esquema de cores para separação de livros em grupos
 
-- colocar botão adicional na marcação para 
-  - ver o texto receptus do verso 
-  - ver a transliteração do verso 
+- colocar botão adicional na marcação para gramática 
   - ver a referencia cruzada
     - só grego 
   - ver a base de analise sintatica e tradução
     - só grego  
-  - remover da tela verso-a-verso, a parte do texto receptus
 
 - padronizar os icones de : marcação, gramática, comparação, Espírito de Profecia  
   
-- tentar colocar tela textus receptus original
-  - o item de leitura deve ser o mesmo usado na leitura padrão [livro,capitulo,versiculo]  
-
 - juntar links para base do espírito de profecia
     - ao navegar um texto que esta descrito no EP, habilitar botão
     que faz um link direto para EGWScripts
@@ -103,5 +97,5 @@ tamanho de fonte normal
 - publicar
 
 Proxima versão 
-  -> trazer a referencia cruzada por numeros 
-  strong do hebraico
+  -> trazer a referencia cruzada e sintaxe hebraico
+  -> busca sintática por numeros strong
