@@ -257,5 +257,17 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-   
+}
+
+.resultado-analise {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.secao-frase {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left; 
 }

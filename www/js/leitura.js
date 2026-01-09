@@ -294,6 +294,53 @@ function editarTempComentarioNegocio(posicao)
   w3.removeClass("#btnExcluirComentario","w3-disabled");
 }
 
+function carregarSintaxe() {
+   let saida = "";
+   for (let i = 0; i < tempmarcacao.length; i++) {
+       const b = tempmarcacao[i].livro;
+       const c = tempmarcacao[i].capitulo;
+       const v = tempmarcacao[i].verso;
+       const endereco = b + "_" + c + "_" + v;
+       //TODO FUTURAMENTE decidir se o dado eh hebraico ou grego
+       const numeros = greekrefdireta[endereco];
+       if (numeros != undefined) {
+         saida += "<div class='secao-frase'>" + mostrarSintaxeStrongNumbers(numeros) + "</div>";
+       }
+   }
+   document.getElementById("analiseSintatica").innerHTML="<div class='resultado-analise'>" + saida + "</div>";
+}
+
+function mostrarSintaxeStrongNumbers(frase) {
+   let saida = "";
+   for (let i=0; i<frase.length; i++) {
+      const num = frase[i];
+      const dados = localizarStrongNumber(num);
+      if (dados) {
+         saida += 
+         //"<div class='secao-frase'>" 
+         "<span class='item-secao-analise'>" + "<b>Palavra</b> : " + dados.orw + "</span>" +
+         "<span class='item-secao-analise'>" + "<b>Transliteração</b> : " + dados.tra + "</span>" +         
+         "<span class='item-secao-analise'>" + "<b>Tradução 1</b> : " + dados.sho + "</span>" +
+         "<span class='item-secao-analise'>" + "<b>Tradução 2</b> : " + dados.def + "</span>" +
+         "<span class='item-secao-analise'>" + "<b>Classe Gramatical</b> : " + dados.psp + "</span>" +
+         "<span class='item-secao-analise'>" + "<b>Fonética</b> : " + dados.pho + "</span>" +
+         "<br>"
+      }
+   }
+   return saida;
+}
+
+function localizarStrongNumber(num) {
+    let saida = undefined;
+    for(let i=0; i<gregorefs.length; i++) {
+      if (gregorefs[i].ref == num) {
+         saida = gregorefs[i];
+         break;
+      }
+    }
+    return saida;
+}
+
 function carregarListaVersos(tela, nomeElemento)
 {
   var str="";

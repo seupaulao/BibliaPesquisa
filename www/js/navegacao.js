@@ -152,7 +152,7 @@ function desfazer()
    carregar();
    document.getElementById("marBtn").style.display = "none";
    document.getElementById("cmpBtn").style.display = "none";
-   // document.getElementById("shaBtn").style.display = "none";
+    document.getElementById("graBtn").style.display = "none";
   // document.getElementById("comBtn").style.display = "none";
 }
 
@@ -413,12 +413,10 @@ function salvarMarcacaoTela(cor)
 
 
 function abrirTelaGramaticaTextusReceptus() {
-   alert('EM DESENVOLVIMENTO');
+   carregarSintaxe();
+   abrirTela("telaSintaxe")
 }
 
-function abrirTelaTextusReceptus() {
-   alert('EM DESENVOLVIMENTO');
-}
 
 // ------------------ SECAO DE CONTROLE DO BOTAO TOPO - LEITURA -------------------
 

@@ -65,13 +65,27 @@ ok - listagem de livros deve ficar no padrão anterior - lado a lado : antigo e 
 
 ok - novo esquema de cores para separação de livros em grupos
 
-- colocar botão adicional na marcação para gramática 
-  - ver a referencia cruzada
-    - só grego 
-  - ver a base de analise sintatica e tradução
-    - só grego  
+ok - colocar botão adicional na marcação para gramática 
+ok   - ver a base de analise sintatica e tradução
+ok     - só grego 
 
-- padronizar os icones de : marcação, gramática, comparação, Espírito de Profecia  
+- colocar animação de virada de página 
+na leitura -> para esquerda e para direita
+
+- colocar animação fade no 'Histórico ordenado por cores'
+
+- na configuração de cores da barra de cima, 
+alterar a cor do menu para uma cor mais 'leve'
+ou mais 'pesada'. As cores do menu devem ficar dependentes
+da seleção de cor do cabeçalho e não do fundo branco ou preto.
+
+- re-gerar os icones de : 
+  - marcação, 
+  - gramática, 
+  - comparação, 
+  - Espírito de Profecia 
+  - logo ?
+  - splashscreen ? 
   
 - juntar links para base do espírito de profecia
     - ao navegar um texto que esta descrito no EP, habilitar botão
