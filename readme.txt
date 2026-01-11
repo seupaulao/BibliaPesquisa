@@ -58,32 +58,22 @@ ok  - dar espaço entre barra e corpo da tela - verificar espaçamento de pesqui
 ok - botão topo 
 ok - cuidado com o splashscreen, está aparecendo apenas o cordova
 ok - gerar arte 
-- **habilitar zoom** - PROBLEMA - NAO CONSEGUI   
+PROBLEMA - NAO CONSEGUI - **habilitar zoom**   
 ok - ao alterar para modo claro/escuro cuidado com a fonte dos menus - não está mudando para contrastar  
-
 ok - listagem de livros deve ficar no padrão anterior - lado a lado : antigo e novo testamento  
-
 ok - novo esquema de cores para separação de livros em grupos
-
 ok - colocar botão adicional na marcação para gramática 
 ok   - ver a base de analise sintatica e tradução
 ok     - só grego 
-
 ok - aos usar os recursos : comparador, e analise sintatica o texto da leitura esta rolando pra baixo. Corrigir essa falha , pois eh pra ficar no mesmo lugar, ou na volta da tela ir pro inicio.
-
 ok - padronizando animação de entrada na tela 
-
 ok - na analise sintatica quando nao apresentar dados 
 ok mostrar a Alerta - caixa amarela: "Dados não foram encontrados ou 
 ok funcionalidade para o item está em desenvolvimento."
-
 OK - colocar animação fade no 'Histórico ordenado por cores'
-
 ok - cor do menu deve ser azul, independente se está no modo claro ou escuro 
-
 ok - removido temporariamente a analise sintatica do texto hebraico até baixar a base 
-
-- colocar animação de virada de página na leitura -> para esquerda e para direita
+NAO FUNCIONOU - colocar animação de virada de página na leitura -> para esquerda e para direita
 
 - re-gerar os icones de : 
   - marcação, 
@@ -120,6 +110,9 @@ OK  II. texto original desabilitado
 Próxima versão 
   -> trazer a referencia cruzada e sintaxe hebraico
   -> busca sintática por numeros strong
+    - Hebraico 8674 entradas 
+    - https://biblehub.com/strongs/hebrew/1005.htm
+
   -> na configuração de cores da barra de cabeçalho, 
 alterar a cor do menu para uma cor mais 'leve'
 ou mais 'pesada' com base na cor selecionada do cabeçalho. 

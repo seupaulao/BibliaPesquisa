@@ -475,8 +475,11 @@ function irParaDireita() {
 }
 
 mc.on("swiperight", function(ev) {
+// w3.addClass("capitulob1", "w3-animate-left")
 irParaEsquerda();
+// w3.removeClass("capitulob1", "w3-animate-left")
 });
+
 mc.on("swipeleft", function(ev) {
 irParaDireita();
 });
