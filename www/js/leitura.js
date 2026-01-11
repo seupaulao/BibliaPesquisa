@@ -302,6 +302,7 @@ function editarTempComentarioNegocio(posicao)
 
 function carregarSintaxe() {
    let saida = "";
+   let t = 0;
    for (let i = 0; i < tempmarcacao.length; i++) {
        const b = tempmarcacao[i].livro;
        const c = tempmarcacao[i].capitulo;
@@ -311,9 +312,16 @@ function carregarSintaxe() {
        const numeros = greekrefdireta[endereco];
        if (numeros != undefined) {
          saida += "<div class='secao-frase'>" + mostrarSintaxeStrongNumbers(numeros) + "</div>";
+       } else {
+         t = 1; break; 
        }
    }
-   document.getElementById("analiseSintatica").innerHTML="<div class='resultado-analise'>" + saida + "</div>";
+   if (t == 0) {
+      document.getElementById("analiseSintatica").innerHTML="<div class='resultado-analise'>" + saida + "</div>";
+   } else {
+      document.getElementById("analiseSintatica").innerHTML="<div class='resultado-analise'><div class='w3-panel w3-yellow'>Dados não foram encontrados ou funcionalidade para o item está em desenvolvimento</div></div>";
+   }
+
 }
 
 function mostrarSintaxeStrongNumbers(frase) {

@@ -348,12 +348,8 @@ function idiomaPortugues()
  document.getElementById("idselecionarcorfundo").innerHTML="Selecione a cor de fundo";
  document.getElementById("idselecionaridioma").innerHTML="Selecione o idioma";
 
- document.getElementById("idtopo_1").innerHTML="Topo";
- document.getElementById("idtopo_2").innerHTML="Topo";
- document.getElementById("idtopo_3").innerHTML="Topo";
+ document.getElementById("idtopo").innerHTML="Topo";
 
- document.getElementById("idtopo_5").innerHTML="Topo";
- document.getElementById("idtopo_7").innerHTML="Topo";
  document.getElementById("idvoltar").innerHTML="Voltar";
  document.getElementById("idescolhacorq").innerHTML="Escolha uma outra cor";
  document.getElementById("idcomentarios_1").innerHTML="Coment&aacute;rios";
@@ -449,13 +445,8 @@ function idiomaIngles()
  document.getElementById("idselecionarcorfundo").innerHTML="Selecione background color";
  document.getElementById("idselecionaridioma").innerHTML="Select nationality";
 
-//  document.getElementById("idtopo").innerHTML="Top";
- document.getElementById("idtopo_1").innerHTML="Top";
- document.getElementById("idtopo_2").innerHTML="Top";
- document.getElementById("idtopo_3").innerHTML="Top";
-//  document.getElementById("idtopo_4").innerHTML="Top";
- document.getElementById("idtopo_5").innerHTML="Top";
- document.getElementById("idtopo_7").innerHTML="Top";
+document.getElementById("idtopo").innerHTML="Top";
+
 
  document.getElementById("idvoltar").innerHTML="Back";
  document.getElementById("idescolhacorq").innerHTML="Choose another color";

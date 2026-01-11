@@ -73,16 +73,14 @@ ok - aos usar os recursos : comparador, e analise sintatica o texto da leitura e
 
 ok - padronizando animação de entrada na tela 
 
-- colocar botão TOPO na listagem da 'analise sintatica'
+ok - na analise sintatica quando nao apresentar dados 
+ok mostrar a Alerta - caixa amarela: "Dados não foram encontrados ou 
+ok funcionalidade para o item está em desenvolvimento."
 
-- na analise sintatica quando nao apresentar dados 
-mostrar a Alerta - caixa amarela: "Dados não foram encontrados ou 
-funcionalidade para o item está em desenvolvimento."
+OK - colocar animação fade no 'Histórico ordenado por cores'
 
 - colocar animação de virada de página 
 na leitura -> para esquerda e para direita
-
-OK - colocar animação fade no 'Histórico ordenado por cores'
 
 - na configuração de cores da barra de cabeçalho, 
 alterar a cor do menu para uma cor mais 'leve'

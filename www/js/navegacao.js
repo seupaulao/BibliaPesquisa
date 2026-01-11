@@ -102,10 +102,10 @@ function irpara(versiculo)
         *          20 - 8 = 12
         */
        abrirTela("leitura");
+       topFunction();
        const dbtamanhofonte = parseInt( db.getItem("tamanhofonte") ) + 1;
        const tamTextoNormal = 4;
-       const expressao = (versiculo - tamTextoNormal) + dbtamanhofonte;
-      // console.log(tamTextoNormal, dbtamanhofonte, versiculo, expressao);
+       let expressao = (versiculo - tamTextoNormal) + dbtamanhofonte;
        document.getElementById("leiturarodape").innerHTML="<a id='idvchave1' href='#v"+(expressao)+"'>temp</a>";
        document.getElementById("idvchave1").click();
        document.getElementById("leiturarodape").innerHTML = "";
