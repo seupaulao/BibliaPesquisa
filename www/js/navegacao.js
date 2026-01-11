@@ -499,6 +499,7 @@ function retrocedercap()
    topFunction();
 }
 
+/*
 function retrocedercaptr()
 {
     desfazer();
@@ -533,7 +534,7 @@ function retrocedercapwlc()
     }
   // carregarReceptusWlc();
 }
-
+*/
 
 
 function adiantarcap()
@@ -557,7 +558,7 @@ function adiantarcap()
    topFunction();
 }
 
-
+/*
 function adiantarcaptr()
 {
    var qte = numeroCapitulos();
@@ -595,6 +596,7 @@ function adiantarcapwlc()
    }
  //  carregarReceptusWlc();
 }
+*/
 
 // -------------- TRATAMENTO BACKBUTTON --------------
 document.addEventListener("backbutton", onBackKeyDown, false);  

@@ -214,7 +214,11 @@ function preselecao(va, livro, cap, verso)
      document.getElementById("marBtn").style.display = "block";
   // openNav();
      document.getElementById("cmpBtn").style.display = "block";
-     document.getElementById("graBtn").style.display = "block";
+     //TODO: remover o IF quando tiver os dados de analise sintatica hebraico 
+     console.log("Estou no novo mandamento?", estouNoNovoMandamento(), getLivroMain());
+     if (estouNoNovoMandamento()) {
+        document.getElementById("graBtn").style.display = "block";
+     }
   }
   else {
      var posicao = preselecaocontem(tempmarcacao, va, livro, cap, verso);

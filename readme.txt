@@ -79,14 +79,11 @@ ok funcionalidade para o item está em desenvolvimento."
 
 OK - colocar animação fade no 'Histórico ordenado por cores'
 
-- colocar animação de virada de página 
-na leitura -> para esquerda e para direita
+ok - cor do menu deve ser azul, independente se está no modo claro ou escuro 
 
-- na configuração de cores da barra de cabeçalho, 
-alterar a cor do menu para uma cor mais 'leve'
-ou mais 'pesada' com base na cor selecionada do cabeçalho. 
-As cores do menu devem ficar dependentes
-da seleção de cor do cabeçalho e não do fundo branco ou preto.
+ok - removido temporariamente a analise sintatica do texto hebraico até baixar a base 
+
+- colocar animação de virada de página na leitura -> para esquerda e para direita
 
 - re-gerar os icones de : 
   - marcação, 
@@ -96,11 +93,6 @@ da seleção de cor do cabeçalho e não do fundo branco ou preto.
   - logo ?
   - splashscreen ? 
   
-- juntar links para base do espírito de profecia
-    - ao navegar um texto que esta descrito no EP, habilitar botão
-    que faz um link direto para EGWScripts
-    - botão deve ter comportamento similar ao "Topo" 
-
 - corrigir ir para na seleção de verso
   I. texto original habilitado
     1. texto normal 
@@ -108,19 +100,33 @@ da seleção de cor do cabeçalho e não do fundo branco ou preto.
     3. texto grande
 OK  II. texto original desabilitado
 
+- fazer ou remover tela de ajuda
+
 - compras e propagandas
    - banner no final 
    - video
       - dicionario
-	  - mapas 
-	    1 video a cada 5 acessos
+	    - mapas 
+	      - 1 video a cada 5 acessos
 
 - habilitar compra do app
   - remover propagandas
-  - definir preço 2.99 - 8.99 ?? 
+  - definir preço 2.99 - 8.99 ??
+    - guardar identificador das pessoas que comprararm o app para futuras releases
+      - como fazer isso ?? 
 
 - publicar
 
-Proxima versão 
+Próxima versão 
   -> trazer a referencia cruzada e sintaxe hebraico
   -> busca sintática por numeros strong
+  -> na configuração de cores da barra de cabeçalho, 
+alterar a cor do menu para uma cor mais 'leve'
+ou mais 'pesada' com base na cor selecionada do cabeçalho. 
+As cores do menu devem ficar dependentes
+da seleção de cor do cabeçalho e não do fundo branco ou preto.
+-> terminar de escrever a base para os livros do espírito de profecia
+-> juntar links para base do espírito de profecia
+    - ao navegar um texto que esta descrito no EP, habilitar botão
+    que faz um link direto para EGWScripts
+    - botão deve ter comportamento similar ao "Topo" 

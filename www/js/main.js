@@ -45,6 +45,11 @@ tempcomentario=[];
 var semanapt=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
 var semanaen=['Sunday','Monday','Tuesday','Wedsneday','Thursday','Friday','Saturday'];
 
+
+function estouNoNovoMandamento() {
+   return getLivroMain() >= 40;
+}
+
 function getCapituloMain()
 {
     return cap;
