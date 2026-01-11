@@ -125,7 +125,9 @@ function escreveMarcacao(t1, va, b, c, v)
         }
 }
 
-
+var primeiroMarcado;
+function setPrimeiroMarcado(v) { primeiroMarcado = v; }
+function getPrimeiroMarcado() { return primeiroMarcado; }
 
 function carregar()  {
    var detalhe = "";
@@ -175,7 +177,11 @@ function carregar()  {
    nomecap.innerHTML="<b>" + getCapituloMain() + "</b>";
    n1.innerHTML=base[getLivroMain()].livro;
    document.getElementById("capitulob1").innerHTML= "<p>&nbsp;</p>"+detalhe+"<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>";
-   
+   let prim = getPrimeiroMarcado();
+   if (prim) {
+      irpara(prim);
+      setPrimeiroMarcado(undefined);
+   }
 }
 
 function preselecaocontem(temp, va, livro, cap, verso)

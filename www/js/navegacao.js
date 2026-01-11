@@ -93,8 +93,20 @@ function abrirTelaPlanoEstudo()
 
 function irpara(versiculo)
 {
+       /**
+        * col 2:10    
+        * normal = 10 - 4 = 6 [8, 9, 10...]
+        * médio  = 10 - 4 = 6
+        *          20 - 4 = 16
+        *          10 - 8 = 2
+        *          20 - 8 = 12
+        */
        abrirTela("leitura");
-       document.getElementById("leiturarodape").innerHTML="<a id='idvchave1' href='#v"+(versiculo-4)+"'>temp</a>";
+       const dbtamanhofonte = parseInt( db.getItem("tamanhofonte") ) + 1;
+       const tamTextoNormal = 4;
+       const expressao = (versiculo - tamTextoNormal) + dbtamanhofonte;
+      // console.log(tamTextoNormal, dbtamanhofonte, versiculo, expressao);
+       document.getElementById("leiturarodape").innerHTML="<a id='idvchave1' href='#v"+(expressao)+"'>temp</a>";
        document.getElementById("idvchave1").click();
        document.getElementById("leiturarodape").innerHTML = "";
 }
@@ -146,6 +158,10 @@ function mostrarMenuLeituraVersos()
 
 function desfazer()
 {
+   if (tempmarcacao.length > 0) {
+      console.log(tempmarcacao);
+      setPrimeiroMarcado(tempmarcacao[0].verso);
+   }
    tempmarcacao = [];
    tempcomentario = [];
    tempselecao = [];

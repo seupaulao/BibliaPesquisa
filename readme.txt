@@ -69,14 +69,25 @@ ok - colocar botão adicional na marcação para gramática
 ok   - ver a base de analise sintatica e tradução
 ok     - só grego 
 
+ok - aos usar os recursos : comparador, e analise sintatica o texto da leitura esta rolando pra baixo. Corrigir essa falha , pois eh pra ficar no mesmo lugar, ou na volta da tela ir pro inicio.
+
+ok - padronizando animação de entrada na tela 
+
+- colocar botão TOPO na listagem da 'analise sintatica'
+
+- na analise sintatica quando nao apresentar dados 
+mostrar a Alerta - caixa amarela: "Dados não foram encontrados ou 
+funcionalidade para o item está em desenvolvimento."
+
 - colocar animação de virada de página 
 na leitura -> para esquerda e para direita
 
-- colocar animação fade no 'Histórico ordenado por cores'
+OK - colocar animação fade no 'Histórico ordenado por cores'
 
-- na configuração de cores da barra de cima, 
+- na configuração de cores da barra de cabeçalho, 
 alterar a cor do menu para uma cor mais 'leve'
-ou mais 'pesada'. As cores do menu devem ficar dependentes
+ou mais 'pesada' com base na cor selecionada do cabeçalho. 
+As cores do menu devem ficar dependentes
 da seleção de cor do cabeçalho e não do fundo branco ou preto.
 
 - re-gerar os icones de : 
@@ -92,10 +103,12 @@ da seleção de cor do cabeçalho e não do fundo branco ou preto.
     que faz um link direto para EGWScripts
     - botão deve ter comportamento similar ao "Topo" 
 
-- ao alterar o tamanho da fonte de leitura, 
-quando usar o ir para versiculo não consegue ir para o lugar certo
-pois o padrão de scroll está concebido apenas para 
-tamanho de fonte normal 
+- corrigir ir para na seleção de verso
+  I. texto original habilitado
+    1. texto normal 
+    2. texto médio
+    3. texto grande
+OK  II. texto original desabilitado
 
 - compras e propagandas
    - banner no final 
