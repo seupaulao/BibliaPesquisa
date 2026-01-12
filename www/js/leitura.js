@@ -157,8 +157,8 @@ function carregar()  {
                let oot = extrairVersoBaseTranslit(getLivroMain(), getCapituloMain(), getVersiculoMain(), true);
                detalhe = detalhe + 
                escreveMarcacao(t1, getVersaoAtualMain(), getLivroMain(), getCapituloMain(), getVersiculoMain())
-               + "<p style='font-size: "+tamanhoFonteTextoOriginal+"px'>"+ oo + "</p>"
-               + "<p>"+ oot + "</p>";
+               + "<p style='font-size: "+tamanhoFonteTextoOriginal+"px; color: red'>"+ oo + "</p>"
+               + "<p style='color: blue'>"+ oot + "</p>";
             } else {
                detalhe = detalhe + 
                           escreveMarcacao(t1, getVersaoAtualMain(), getLivroMain(), getCapituloMain(), getVersiculoMain());

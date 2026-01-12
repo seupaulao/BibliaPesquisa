@@ -83,12 +83,15 @@ NAO FUNCIONOU - colocar animação de virada de página na leitura -> para esque
   - logo ?
   - splashscreen ? 
   
+ok - diferenciar texto normal, texto original e texto transliterado
+
 - corrigir ir para na seleção de verso
   I. texto original habilitado
     1. texto normal 
     2. texto médio
     3. texto grande
 OK  II. texto original desabilitado
+
 
 - fazer ou remover tela de ajuda
 
