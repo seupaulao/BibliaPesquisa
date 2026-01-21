@@ -74,16 +74,10 @@ OK - colocar animação fade no 'Histórico ordenado por cores'
 ok - cor do menu deve ser azul, independente se está no modo claro ou escuro 
 ok - removido temporariamente a analise sintatica do texto hebraico até baixar a base 
 NAO FUNCIONOU - colocar animação de virada de página na leitura -> para esquerda e para direita
-
-- re-gerar os icones de : 
-  - marcação, 
-  - gramática, 
-  - comparação, 
-  - Espírito de Profecia 
-  - logo ?
-  - splashscreen ? 
-  
 ok - diferenciar texto normal, texto original e texto transliterado
+ok - removido tela de ajuda
+
+ok - re-gerar os icones de : marcação, gramática, comparação
 
 - corrigir ir para na seleção de verso
   I. texto original habilitado
@@ -92,37 +86,43 @@ ok - diferenciar texto normal, texto original e texto transliterado
     3. texto grande
 OK  II. texto original desabilitado
 
-
-- fazer ou remover tela de ajuda
-
 - compras e propagandas
    - banner no final 
    - video
       - dicionario
 	    - mapas 
 	      - 1 video a cada 5 acessos
+   - associar video ao clicar no botão da tela 'Ajude esse projeto'		    
 
 - habilitar compra do app
   - remover propagandas
   - definir preço 2.99 - 8.99 ??
     - guardar identificador das pessoas que comprararm o app para futuras releases
       - como fazer isso ?? 
+  - habilitar buymeacoffee na tela 'Ajude esse projeto'	 	  
 
 - publicar
 
 Próxima versão 
   -> trazer a referencia cruzada e sintaxe hebraico
+  
   -> busca sintática por numeros strong
     - Hebraico 8674 entradas 
     - https://biblehub.com/strongs/hebrew/1005.htm
+  
+  -> Espírito de Profecia : deve aparecer no momento que determinado capitulo
+  tiver referência no Espirito de Profecia (Patr Profetas, Profetas e reis, atos dos apostolos, desejado de todas as nações, parabolas de jesus, grande conflito)
 
   -> na configuração de cores da barra de cabeçalho, 
 alterar a cor do menu para uma cor mais 'leve'
 ou mais 'pesada' com base na cor selecionada do cabeçalho. 
 As cores do menu devem ficar dependentes
 da seleção de cor do cabeçalho e não do fundo branco ou preto.
+
 -> terminar de escrever a base para os livros do espírito de profecia
+
 -> juntar links para base do espírito de profecia
     - ao navegar um texto que esta descrito no EP, habilitar botão
     que faz um link direto para EGWScripts
     - botão deve ter comportamento similar ao "Topo" 
+

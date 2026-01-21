@@ -67,7 +67,7 @@
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
-    background-color: blue; /* Set a background color */
+    background-color: rgb(137, 7, 111); /* Set a background color */
     color: white; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
     padding: 6px; /* Some padding */
