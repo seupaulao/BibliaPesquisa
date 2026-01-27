@@ -104,8 +104,13 @@ function irpara(versiculo)
        abrirTela("leitura");
        topFunction();
        const dbtamanhofonte = parseInt( db.getItem("tamanhofonte") ) + 1;
-       const tamTextoNormal = 4;
-       let expressao = (versiculo - tamTextoNormal) + dbtamanhofonte;
+       let tamTextoNormal = 4;
+       if (getExibirTO() == 1) {
+         tamTextoNormal = 3;
+       } else {
+         tamTextoNormal = 5;
+       }
+       let expressao = Math.abs(versiculo - tamTextoNormal) + dbtamanhofonte;
        document.getElementById("leiturarodape").innerHTML="<a id='idvchave1' href='#v"+(expressao)+"'>temp</a>";
        document.getElementById("idvchave1").click();
        document.getElementById("leiturarodape").innerHTML = "";
