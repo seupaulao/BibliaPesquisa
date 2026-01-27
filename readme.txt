@@ -76,34 +76,32 @@ ok - removido temporariamente a analise sintatica do texto hebraico até baixar 
 NAO FUNCIONOU - colocar animação de virada de página na leitura -> para esquerda e para direita
 ok - diferenciar texto normal, texto original e texto transliterado
 ok - removido tela de ajuda
+OK - re-gerar os icones de : marcação, gramática, comparação
+OK - corrigir ir para na seleção de verso
 
-ok - re-gerar os icones de : marcação, gramática, comparação
+- propagandas
+   - banner no fim da página - adaptative banner 
+   - video por recompensa
+     - assista  um video e ganhe 30 minutos sem banner    
+     - associar video ao clicar no botão da tela 'Ajude esse projeto (video)'
+		    
+---
+Ver e analisar o conselho.chatgtp.propagandas.txt
+---
 
-- corrigir ir para na seleção de verso
-  I. texto original habilitado
-    1. texto normal 
-    2. texto médio
-    3. texto grande
-OK  II. texto original desabilitado
 
-- compras e propagandas
-   - banner no final 
-   - video
-      - dicionario
-	    - mapas 
-	      - 1 video a cada 5 acessos
-   - associar video ao clicar no botão da tela 'Ajude esse projeto'		    
 
-- habilitar compra do app
-  - remover propagandas
-  - definir preço 2.99 - 8.99 ??
-    - guardar identificador das pessoas que comprararm o app para futuras releases
-      - como fazer isso ?? 
-  - habilitar buymeacoffee na tela 'Ajude esse projeto'	 	  
 
 - publicar
 
 Próxima versão 
+
+->  habilitar compra do app - precisa de BACKEND
+  - remover propagandas
+  - definir preço 2.99 - 8.99 ??
+    - guardar identificador das pessoas que comprararm o app para futuras releases
+      - como fazer isso ?? 
+
   -> trazer a referencia cruzada e sintaxe hebraico
   
   -> busca sintática por numeros strong
@@ -126,3 +124,6 @@ da seleção de cor do cabeçalho e não do fundo branco ou preto.
     que faz um link direto para EGWScripts
     - botão deve ter comportamento similar ao "Topo" 
 
+OBS: buy me a coffee não funciona no android
+  pois quebra as politicas do Goggle Pay Billing
+  que deve ser usado, ao invés de buy me a coffee.

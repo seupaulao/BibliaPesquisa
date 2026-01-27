@@ -1,0 +1,398 @@
+Excelente app — e parabéns, porque **esse tipo de app monetiza melhor com respeito** 🙏
+Bíblia + estudo = público fiel, sensível a interrupções. Então vamos fazer **do jeito certo**.
+
+Vou dividir em **3 partes práticas**:
+
+1. **Estratégia ideal para seu tipo de app**
+2. **Textos (copy) que convertem sem irritar**
+3. **Lógica de exibição + exemplo com `cordova-plugin-admob-plus`**
+
+---
+
+## 1️⃣ Estratégia ideal para uma Bíblia (UX first)
+
+### ❌ O que NÃO fazer
+
+* Interstitial durante leitura
+* Vídeo forçado
+* Anúncio abrindo versículo, dicionário ou mapa
+
+Isso gera:
+
+* Reviews negativas
+* Abandono rápido
+* Reclamação (especialmente público religioso)
+
+---
+
+### ✅ O combo ideal (recomendado)
+
+#### 🧩 1. Banner discreto
+
+* Apenas **fora da tela de leitura**
+* Ex: menu, lista de livros, configurações, planos
+* Banner **adaptativo** no rodapé
+
+#### ❤️ 2. Rewarded Video voluntário (principal receita)
+
+* Usuário escolhe assistir
+* Recompensa clara:
+
+  * remover anúncios temporariamente
+  * apoiar o projeto
+
+#### 🚫 3. Interstitial
+
+👉 **Minha recomendação sincera:** **não usar**
+Se insistir:
+
+* Apenas ao **sair de uma seção** (ex: fechar plano de estudo)
+* No máximo 1 por sessão
+
+---
+
+## 2️⃣ Textos que convertem (sem culpa nem manipulação)
+
+### 🎯 Texto principal (botão)
+
+**“Apoiar o desenvolvimento”**
+
+Funciona melhor que:
+
+* “Assistir anúncio”
+* “Ver propaganda”
+
+---
+
+### 📺 Rewarded Video — texto curto
+
+Use algo simples e honesto:
+
+> **Apoie este projeto**
+> Assistindo a um breve vídeo, você ajuda a manter o app gratuito.
+> Como agradecimento, os anúncios serão removidos por **1 hora**.
+
+Botões:
+
+* `Assistir vídeo`
+* `Agora não`
+
+---
+
+### 🙏 Versão ainda mais suave (público cristão gosta)
+
+> Este aplicativo é mantido com muito cuidado e dedicação.
+> Se quiser apoiar o projeto, você pode assistir a um breve vídeo.
+> Obrigado por caminhar conosco ❤️
+
+---
+
+### ⚠️ Importante (políticas)
+
+* Nunca diga que é **obrigatório**
+* Nunca bloqueie conteúdo bíblico
+* Nunca sugira que é “pagamento”
+
+---
+
+## 3️⃣ Implementação com `cordova-plugin-admob-plus`
+
+### 📦 Instalação
+
+```bash
+cordova plugin add cordova-plugin-admob-plus
+```
+
+---
+
+## 🧠 Lógica geral (simples e eficiente)
+
+### Estados globais
+
+```js
+let adsDisabledUntil = 0;
+```
+
+---
+
+### ⏱️ Função para verificar se pode mostrar anúncios
+
+```js
+function adsEnabled() {
+  return Date.now() > adsDisabledUntil;
+}
+```
+
+---
+
+## 📢 Banner (somente em telas específicas)
+
+```js
+import { BannerAd, BannerAdSize } from '@admob-plus/cordova';
+
+const banner = new BannerAd({
+  adUnitId: 'ca-app-pub-XXXX/banner',
+  size: BannerAdSize.ADAPTIVE_BANNER,
+  position: 'bottom',
+});
+
+function showBanner() {
+  if (adsEnabled()) {
+    banner.show();
+  }
+}
+
+function hideBanner() {
+  banner.hide();
+}
+```
+
+📌 **Onde mostrar**
+
+* Home
+* Lista de livros
+* Planos de leitura
+* Configurações
+
+📌 **Onde esconder**
+
+* Leitura do texto bíblico
+* Interlinear
+* Dicionário
+* Mapas
+
+---
+
+## 🎁 Rewarded Video (o coração da monetização)
+
+```js
+import { RewardedAd } from '@admob-plus/cordova';
+
+const rewarded = new RewardedAd({
+  adUnitId: 'ca-app-pub-XXXX/rewarded',
+});
+
+async function supportProject() {
+  await rewarded.load();
+
+  rewarded.on('rewarded', () => {
+    adsDisabledUntil = Date.now() + (60 * 60 * 1000); // 1 hora
+    alert('Obrigado por apoiar! Os anúncios foram removidos por 1 hora 🙏');
+  });
+
+  rewarded.show();
+}
+```
+
+---
+
+## 📍 Onde colocar o botão “Apoiar”
+
+Melhores lugares:
+
+* Menu lateral
+* Tela “Sobre”
+* Configurações
+* Final de um plano de estudo
+
+❌ Nunca durante leitura
+
+---
+
+## 🧠 Extra (boa prática)
+
+Salve `adsDisabledUntil` no `localStorage`:
+
+```js
+localStorage.setItem('adsDisabledUntil', adsDisabledUntil);
+```
+
+E recupere ao abrir o app:
+
+```js
+adsDisabledUntil = Number(localStorage.getItem('adsDisabledUntil')) || 0;
+```
+
+---
+
+## 🏁 Resumo final (estratégia vencedora)
+
+✅ Banner leve fora da leitura
+✅ Rewarded video voluntário
+❌ Interstitial frequente
+❌ Vídeo forçado
+
+👉 Resultado:
+
+* Boa receita
+* Zero conflito com fé
+* Reviews positivas
+* App sustentável
+
+Se quiser, no próximo passo eu posso:
+
+* Ajustar os **textos ao seu tom exato**
+* Criar um **fluxo visual** (quando aparece o botão)
+* Sugerir **AB testing** de tempo (30min vs 1h sem anúncios)
+
+Me diz:
+👉 Você já tem **tela “Sobre” ou “Apoiar”** no app?
+
+Perfeito 👍 então vamos **fechar o desenho final**, 
+já pensando em conversão + respeito ao conteúdo bíblico.
+
+Vou te entregar **algo pronto para aplicar**:
+
+---
+
+## 🧭 Estrutura final recomendada no seu app
+
+### 📍 Onde colocar o botão **“Apoiar o desenvolvimento”**
+
+Como você **já tem tela**, use **2 pontos**:
+
+1️⃣ **Menu lateral**
+
+* Ícone: ❤️ ou ☕
+* Texto: **Apoiar o desenvolvimento**
+
+2️⃣ **Tela “Sobre”**
+
+* Um card simples, sem chamar demais atenção
+* Logo abaixo da descrição do projeto
+
+---
+
+## 📝 Texto FINAL (copy otimizada para seu público)
+
+### 🔹 Título do card
+
+**Apoie este projeto**
+
+---
+
+### 🔹 Texto principal (curto, funciona muito bem)
+
+> Este aplicativo é mantido com dedicação 
+para permanecer gratuito e acessível.
+>
+> Se desejar, você pode apoiar o desenvolvimento 
+assistindo a um breve vídeo.
+> Como agradecimento, os anúncios serão removidos temporariamente.
+
+---
+
+### 🔹 Botões
+
+* **Assistir vídeo e apoiar**
+* Agora não
+
+---
+
+### 🔹 Mensagem pós-recompensa
+
+> 🙏 Muito obrigado pelo seu apoio.
+> Os anúncios foram removidos por **1 hora**.
+> Que este conteúdo continue sendo uma bênção.
+
+👉 Esse texto costuma gerar **mais aceitação 
+e menos rejeição** do que algo técnico.
+
+---
+
+## ⏱️ Tempo ideal sem anúncios
+
+Recomendo começar com:
+
+🕐 **1 hora sem anúncios**
+
+Por quê?
+
+* Valor percebido alto
+* Não “desvaloriza” o rewarded
+* Incentiva apoio recorrente (sem parecer exploração)
+
+Depois, você pode testar:
+
+* 30 min (mais visualizações)
+* 2 horas (menos, mas CPM maior)
+
+---
+
+## 🧠 Lógica completa de exibição (bem redonda)
+
+### 🔁 Fluxo geral
+
+* Banner aparece **fora da leitura**
+* Rewarded **nunca automático**
+* Usuário decide
+
+---
+
+### 🧩 Telas SEM banner
+
+❌ Texto bíblico
+❌ Interlinear
+❌ Dicionário
+❌ Mapas
+
+➡️ Experiência limpa, foco total no conteúdo
+
+---
+
+### 🧩 Telas COM banner
+
+✅ Home
+✅ Lista de livros
+✅ Planos de leitura
+✅ Configurações
+✅ Sobre
+
+---
+
+## 🧠 Lógica resumida (em português claro)
+
+* Se **adsDisabledUntil > agora**
+
+  * Não mostrar banner
+* Se usuário assistir vídeo
+
+  * Remove anúncios por 1h
+* Se usuário ignorar
+
+  * Nada muda (sem punição)
+
+👉 Isso gera **confiança**.
+
+---
+
+## 🧪 Extra (opcional, mas muito bom)
+
+Depois de **3–5 dias de uso**, você pode 
+mostrar **uma única vez** um aviso sutil:
+
+> Se este app tem sido útil para você, 
+considere apoiar o desenvolvimento ❤️
+
+Botões:
+
+* Apoiar
+* Fechar
+
+⚠️ Uma vez só. Nunca insistir.
+
+---
+
+## 📊 O que você pode esperar na prática
+
+Apps bíblicos com esse modelo costumam ter:
+
+* CTR baixo em banner (normal)
+* **Rewarded com taxa altíssima de aceitação**
+* Reviews do tipo:
+
+  > “App respeitoso, sem propaganda invasiva”
+
+Isso ajuda **muito** no ranking da Play Store.
+
+---
