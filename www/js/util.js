@@ -58,9 +58,9 @@ function extrairVersoBaseTipo1(baseversao,b,c,v)
   return baseversao[b-1].chapters[c-1][c][v];
 }
 
-function extrairVersoBaseTranslit(b,c,v,isTranslit) {
-  // console.log(b,c,v);
-   let abl = [
+function getAbl()
+{
+   const abl = [
       "GEN","EXO","LEV","NUM","DEU","JOS","JDG","RUT","1SA","2SA",
       "1KI","2KI","1CH","2CH","EZR","NEH","EST","JOB","PSA","PRO",
       "ECC","SOL","ISA","JER","LAM","EZE","DAN","HOS","JOE","AMO",
@@ -69,6 +69,20 @@ function extrairVersoBaseTranslit(b,c,v,isTranslit) {
       "COL","1TH","2TH","1TI","2TI","TIT","PHM","HEB","JAM","1PE",
       "2PE","1JO","2JO","3JO","JUD","REV"
    ];
+   return abl;
+}
+
+function extrairVersoEpo(b,c,v) {
+   
+   const abl = getAbl();
+   const abrevLivro = abl[b-1].toUpperCase();   
+   const chave = abrevLivro + "_" + c + "_" + v;
+   return epo[chave];
+}
+
+function extrairVersoBaseTranslit(b,c,v,isTranslit) {
+  // console.log(b,c,v);
+   const abl = getAbl();
    let abrevLivro = abl[b-1].toUpperCase();
    let chave = abrevLivro + "_" + c + "_" + v;
    //console.log(chave);
