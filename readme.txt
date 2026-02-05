@@ -77,7 +77,8 @@ NAO FUNCIONOU - colocar animação de virada de página na leitura -> para esque
 ok - diferenciar texto normal, texto original e texto transliterado
 ok - removido tela de ajuda
 OK - re-gerar os icones de : marcação, gramática, comparação
-OK - corrigir ir para na seleção de verso
+
+- corrigir ir para na seleção de verso
 
 - propagandas
    - banner no fim da página - adaptative banner 

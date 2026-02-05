@@ -430,21 +430,6 @@ function retornaPadraoListaVersoComparar(nome, baseversao, tipo, limiteCaractere
 
 }
 
-function retornaPadraoListaVersoCompararEsperanto(nome) {
-   let str = "<div class='cabecalho w3-panel w3-lime'><h4>"+nome+"</h4></div>";
-   for(var i = 0; i < tempmarcacao.length; i++)
-   {
-      let b = tempmarcacao[i].livro;
-      let c = tempmarcacao[i].capitulo;
-      let v = tempmarcacao[i].verso;
-      let enderecoVersoBase = enderecoVerso(b,c,v);
-      let texto = extrairVersoEpo(b,c,v);
-      str += "<p>" + enderecoVersoBase +"&nbsp;&nbsp;"+ texto + "</p>";
-     // let transliteracao = extrairVersoBaseTranslit(b,c,v,true);
-     // str += "<p>" + enderecoVersoBase +"&nbsp;&nbsp;"+ transliteracao + "</p>";
-   }
-   return str;
-}
 
 function retornaPadraoListaVersoCompararTextusReceptus(nome) {
    let str = "<div class='cabecalho w3-panel w3-lime'><h4>"+nome+"</h4></div>";
@@ -473,7 +458,6 @@ function carregarListaVersosComparar(nomeElemento)
   str += retornaPadraoListaVersoComparar("World English Bible",web,0,-1);
   str += retornaPadraoListaVersoComparar("King James Version",kjv,1,500);
   str += retornaPadraoListaVersoCompararTextusReceptus("Textus Receptus/WLC");
-  str += retornaPadraoListaVersoCompararEsperanto("Esperanto");
 
   document.getElementById(nomeElemento).innerHTML = str;
 }

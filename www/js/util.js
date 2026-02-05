@@ -72,13 +72,6 @@ function getAbl()
    return abl;
 }
 
-function extrairVersoEpo(b,c,v) {
-   
-   const abl = getAbl();
-   const abrevLivro = abl[b-1].toUpperCase();   
-   const chave = abrevLivro + "_" + c + "_" + v;
-   return epo[chave];
-}
 
 function extrairVersoBaseTranslit(b,c,v,isTranslit) {
   // console.log(b,c,v);
