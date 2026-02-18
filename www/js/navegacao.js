@@ -103,16 +103,30 @@ function irpara(versiculo)
         */
        abrirTela("leitura");
        topFunction();
-       const dbtamanhofonte = parseInt( db.getItem("tamanhofonte") ) + 1;
-       let tamTextoNormal = 4;
-       if (getExibirTO() == 1) {
-         tamTextoNormal = 3;
-       } else {
-         tamTextoNormal = 5;
-       }
-       let expressao = Math.abs(versiculo - tamTextoNormal) + dbtamanhofonte;
+       
+       //const dbtamanhofonte = parseInt( db.getItem("tamanhofonte") ) + 1;
+
+       let tamTextoNormal = 128;
+       
+      //  if (getExibirTO() == 1) {
+      //    tamTextoNormal = 128;
+      //  } else {
+      //    tamTextoNormal = 128;
+      //  }
+      //  let expressao = Math.abs(versiculo - tamTextoNormal) + dbtamanhofonte;
+       let expressao = Math.abs(versiculo);
+
        document.getElementById("leiturarodape").innerHTML="<a id='idvchave1' href='#v"+(expressao)+"'>temp</a>";
        document.getElementById("idvchave1").click();
+       let st1 = document.body.scrollTop;
+       let st2 = document.documentElement.scrollTop;
+       if (st2 > 0 ) {
+          document.documentElement.scrollTop = st2 - tamTextoNormal;
+       } else {
+          document.body.scrollTop = st1 - tamTextoNormal;
+       }
+      //  document.body.scrollTop -= dbtamanhofonte;
+      //  console.log('Scroll Ori: ', st1 > 0 ? st1 : st2,'Scroll:' + document.body.scrollTop > 0 ? document.body.scrollTop : document.documentElement.scrollTop, "TN: ", tamTextoNormal);
        document.getElementById("leiturarodape").innerHTML = "";
 }
 

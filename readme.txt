@@ -78,12 +78,13 @@ ok - diferenciar texto normal, texto original e texto transliterado
 ok - removido tela de ajuda
 OK - re-gerar os icones de : marcação, gramática, comparação
 
-- corrigir ir para na seleção de verso
+ok - corrigir ir para na seleção de verso
 
 - propagandas
    - banner no fim da página - adaptative banner 
    - video por recompensa
-     - assista  um video e ganhe 30 minutos sem banner    
+     - assista  um video e ganhe 2 horas sem propaganda = 120 minutos      
+     - assista  três videos e ganhe 1 dia sem propaganda = 1440 minutos    
      - associar video ao clicar no botão da tela 'Ajude esse projeto (video)'
 		    
 ---
