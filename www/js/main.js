@@ -111,6 +111,8 @@ function iniciar()
    setVersiculoMain(1);
    getLivroCapituloBD();
    carregarVersao();
+   const torig = getExibirTO();
+   document.getElementById("btnAltTO").innerHTML = torig < 0 ? "Exibir TO" : "Ocultar TO";
    carregar();
    bbuscasimples=false;
    //abrirTela('princ');
