@@ -80,11 +80,13 @@ OK - re-gerar os icones de : marcação, gramática, comparação
 
 ok - corrigir ir para na seleção de verso
 
+- colocar modal nas ações de apagar em configuração 
+confirmando 'se deseja realmente prosseguir'
+
 - propagandas
    - banner no fim da página - adaptative banner 
    - video por recompensa
      - assista  um video e ganhe 2 horas sem propaganda = 120 minutos      
-     - assista  três videos e ganhe 1 dia sem propaganda = 1440 minutos    
      - associar video ao clicar no botão da tela 'Ajude esse projeto (video)'
 		    
 ---

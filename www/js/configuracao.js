@@ -26,9 +26,29 @@ function exibirTO() {
 }
 
 function naoExibirTO() {
-      db.setItem("exibirTextoOriginal", 0);
+      db.setItem("exibirTextoOriginal", -1);
       w3.show("#idexibirto");
       w3.hide("#idnaoexibirto");
+}
+
+function alternarTO() {
+     let op = getExibirTO();
+    // console.log("exibirTextoOriginal? ", op);
+     op *= -1;
+     //console.log("exibirTextoOriginal pos calculo:: ", op);
+     db.setItem("exibirTextoOriginal", op);
+     if (op > 0) {
+         w3.hide("#idexibirto");
+         w3.show("#idnaoexibirto");
+        // document.getElementById("btnAltTO").value = "Ocultar TO";
+         document.getElementById("btnAltTO").innerHTML = "Ocultar TO";
+     } else {
+         w3.show("#idexibirto");
+         w3.hide("#idnaoexibirto");
+        // document.getElementById("btnAltTO").value = "Exibir TO";
+         document.getElementById("btnAltTO").innerHTML = "Exibir TO";
+     }
+     carregar();
 }
 
 function mudarFundoBranco()
