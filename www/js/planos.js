@@ -839,7 +839,7 @@ function getVersosRangeCapitulo(referencia) {
     const porcoes = cauda.split('-');
     let inicio = 0;
     let fim = 0;
-    console.log(porcoes, porcoes.length)
+    //console.log(porcoes, porcoes.length)
     if (porcoes.length < 2) {
         inicio = fim = porcoes[0];
     } else {

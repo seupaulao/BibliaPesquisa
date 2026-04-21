@@ -8,7 +8,7 @@ var siglaPlano;
 getSiglaPlano=function(){ return siglaPlano; }
 setSiglaPlano=function(valor){ siglaPlano = valor; }
 
-const MAX_PLANOS = 3;
+const MAX_PLANOS = 10;
 
 // decide a versao da biblia pela nacionalidade escolhida
 function getBlvOrWeb()
@@ -25,7 +25,16 @@ function selecionarTitulo(plano)
      case 1: setSiglaPlano('ab5'); return nacionalidade ? "Ano Biblico - 5 capitulos por dia" : "Biblic Year - 5 chapter each day";  break;
      case 2: setSiglaPlano('ab3'); return nacionalidade ? "Ano Biblico - 3 capitulos por dia" : "Biblic Year - 3 chapter each day"; break;
      case 3: setSiglaPlano('pen'); return nacionalidade ? "Pentateuco" : "Pentateuch";   break;
-  }
+     case 4: setSiglaPlano('sab'); return nacionalidade ? "Sabedoria" : "Wisdom";   break;
+     case 5: setSiglaPlano('pme'); return nacionalidade ? "Profetas Menores" : "Minor Prophets";   break;
+     case 6: setSiglaPlano('pma'); return nacionalidade ? "Profetas Maiores" : "Major Prophets";   break;
+     case 7: setSiglaPlano('his'); return nacionalidade ? "Livros Históricos" : "Historical Books";   break;
+    //  case 8: setSiglaPlano('cro'); return nacionalidade ? "Crônicas" : "Chronicles";   break;
+     case 8: setSiglaPlano('evg'); return nacionalidade ? "Evangelhos e Atos" : "Acts and Gospels";   break;
+     case 9: setSiglaPlano('pau'); return nacionalidade ? "Cartas de Paulo" : "Epistles of Paul";   break;
+     case 10: setSiglaPlano('res'); return nacionalidade ? "Tiago a Apocalipse" : "James to Revelation";   break;
+    //  case 11: setSiglaPlano('dap'); return nacionalidade ? "Daniel e Apocalipse" : "Daniel and Revelation";   break;
+    }
 }
 
 
@@ -43,20 +52,6 @@ function carregarDivPlanosEstudo()
      document.getElementById('listarplanosestudo').innerHTML=str;
 }
 
-
-// function setarSiglaPlano(plano)
-// {
-//    switch (plano) 
-//    {
-//      case 1:  setSiglaPlano('ab5'); break;
-//      case 2:  setSiglaPlano('ab3'); break;
-//      case 4:  setSiglaPlano('pen'); break;
-//      case 5:  setSiglaPlano('ev');  break;
-//      case 6:  setSiglaPlano('vt');  break;
-//      case 7:  setSiglaPlano('nt');  break;
-//      case 8:  setSiglaPlano('lis'); break;
-//    }
-// }
 
 //reiniciar o plano de estudo
 function rePlano()
@@ -80,6 +75,7 @@ function carregarPlanoEstudo (plano)
   document.getElementById('tituloPlanoEstudoSelecionado').innerHTML=selecionarTitulo(plano);
   document.getElementById('conteudoPlanoEstudoSelecionado').innerHTML=carregarPlano(plano);
   var dadosPlano = selectDiasPlano(getSiglaPlano());
+  //console.log(dadosPlano);
   if  (dadosPlano.length > 0 )
   {
       w3.show("#botaoReiniciar")
@@ -103,9 +99,13 @@ function carregarPlano (plano)
     case 1: str = anoBib5PorDia(); break;
     case 2: str = anoBib3PorDia(); break;
     case 3: str = planoPenta(); break;
+    case 4: str = planoSabedoria(); break;
+    default: str = calcularPlano(plano); break;   
   }
   return str;
 }
+
+
 
 // cria um vetor duplo numa lista, no formato {[ABREV_LIVRO, QUANTIDADE_CAPITULOS]}
 function carregarVetorCapitulos (livros)
@@ -153,6 +153,41 @@ function somaTodosGCap (gcap)
     soma+=parseInt(gcap[i].capitulos);
   }
   return soma;
+}
+
+/*
+objetivo : somar a quantidade de capitulos entre um livro inicial e um livro final, para criar o plano de estudo
+inicial = livro inicial,
+final = livro final
+*/
+function somaCapitulosBaseVersos(inicial, final) {
+   var soma = 0;
+   for (var i = inicial; i <= final; i++) {
+      soma += parseInt(baseversos[i].qtecapitulos);
+   }
+   return soma;
+}
+
+function calcularPlano(plano)
+{
+  let gcap = carregarVetorCapitulos(getBlvOrWeb());
+  switch (plano) {
+    case 5: return calculaPlanoBasico(somaCapitulosBaseVersos(1, 27)+1, somaCapitulosBaseVersos(28, 39)-1, 3, gcap); break; // profetas menores
+    case 6: return calculaPlanoBasico(somaCapitulosBaseVersos(1, 22)+1, somaCapitulosBaseVersos(23, 27)-1, 3, gcap); break; // profetas maiores
+    case 7: return calculaPlanoBasico(somaCapitulosBaseVersos(1, 5)+1, somaCapitulosBaseVersos(6, 17)-1, 3, gcap); break; // livros historicos
+    case 8: return calculaPlanoBasico(somaCapitulosBaseVersos(1, 39)+1, somaCapitulosBaseVersos(40, 44)-1, 3, gcap); break; // evangelho
+    case 9: return calculaPlanoBasico(somaCapitulosBaseVersos(1, 44)+1, somaCapitulosBaseVersos(45, 58)-1, 3, gcap); break; // paulo
+    case 10: return calculaPlanoBasico(somaCapitulosBaseVersos(1, 58)+1, somaCapitulosBaseVersos(58, 66)-1, 3, gcap); break; // restante
+    // case 11: return calculaPlanoBasico(somaCapitulosBaseVersos(1, 65)+1, 66, 3, gcap); break; // daniel e apocalipse
+    default: return "Plano não encontrado";
+  }
+  
+}
+function planoSabedoria ()
+{
+  let gcap = carregarVetorCapitulos(getBlvOrWeb());
+  let vetor = calculaPlanoBasico(somaCapitulosBaseVersos(1, 17)+1, somaCapitulosBaseVersos(18, 22)-1, 3, gcap);
+  return vetor;
 }
 
 function planoPenta ()
@@ -220,6 +255,7 @@ function adiantarcapplanoestudo()
    } else {
       carregarEnderecoVetorPlanoEstudo();
    }
+    topFunction();
 }
 
 function retrocedercapplanoestudo()
@@ -227,6 +263,7 @@ function retrocedercapplanoestudo()
    setPosicaoPlanoEstudo(getPosicaoPlanoEstudo() - 1);
    if (getPosicaoPlanoEstudo() < 0) setPosicaoPlanoEstudo(0);
    carregarEnderecoVetorPlanoEstudo();
+   topFunction();
 }
 
 function construirVetorPlanoEstudo(vetorstring)
@@ -278,27 +315,22 @@ function proximoCapituloAbrev(gcap, posicao)
   return endereco;
 }
 
-// function acumula(valor, qte, gcap, total)
-// {
-//           var tempstr = "";
-//           for (var i=valor; i<valor+qte; i++)
-//           {
-//              var escreve = proximoCapituloAbrev(gcap, i);
-//              if (escreve.length > 0 && i<=total) tempstr += "<li>" + escreve + "</li>";
-//           }
-//           return tempstr;
-// }
+
 
 
 // essa rotina vai gerar a string separada por virgula da sequencia de capitulos usados para um dia de um plano
 function acumulaControleLeitura(valor, qte, gcap, total)
 {
           var tempstr = '';
+          //console.log("inicial:: " + valor + " final:: " + (valor+qte) + " total:: " + total);
+
           for (var i=valor; i<valor+qte; i++)
           {
              var escreve = proximoCapituloAbrev(gcap, i);
              if (escreve.length > 0 && i<=total) tempstr += escreve + ',';
           }
+          //console.log(tempstr);
+
           return tempstr;
 }
 
@@ -312,10 +344,11 @@ function calculaPlanoBasico (inicial, total, somador, gcap)
     var dia = 1;
     var contador=inicial;
     var todos = total; 
+   // console.log("Inicial:: " + inicial + " Total:: " + total + " Somador:: " + somador);
     //TODO: pintar de amarelo, todos os já lidos
-    while(contador <= todos)
+    while(contador <= todos+inicial)
     {
-       var saidaControle=acumulaControleLeitura(contador, somador, gcap, todos); 
+       var saidaControle=acumulaControleLeitura(contador, somador, gcap, inicial+todos); 
        str += "<div id='s"+dia+"' class='w3-red' onclick='abrirControleLeitura(\""+saidaControle+"\","+dia+")'>"; // + dataNac;
        var tempstr;
        tempstr = "Dia" + dia;
@@ -326,82 +359,13 @@ function calculaPlanoBasico (inicial, total, somador, gcap)
     }
   
     str += "</div><p>&nbsp;</p><p>&nbsp;</p>";
+  //  console.log("Plano:::" + str);
     return str;
 }
 
 
 
-// function calcularPlanoAlternado (inicial, total, somadorDiaNormal, somadorFimSemana, gcap)
-// {
 
-//     var str = "<ul class='w3-ul w3-hoverable'>";
-//     var dia = 1;
-//     var acum = 1;
-//     var contador=inicial;
-//     var todos = total;
-//     var t = getDataInicioPlano( getSiglaPlano() );
-//     var data = new Date(t);
-// //    var data = new Date();
-//     var dataNac; 
-  
-//     while(contador <= todos)
-//     {
-//        var saidaControle;
-//        if (data.getDay() == 1 || data.getDay() == 0) saidaControle=acumulaControleLeitura(contador, somadorFimSemana, gcap, todos)
-//        else saidaControle=acumulaControleLeitura(contador, somadorDiaNormal, gcap, todos);
-       
-//        dataNac = getNacionalidade()=="pt-BR" ? "Dia " + dia + ": " + getDataPtFormatado(data) : "Day " + dia + ": " +getDataEnFormatado(data);
-//        str += "<li id='s"+dia+"'onclick='abrirControleLeitura(\""+saidaControle+"\","+dia+")'>" + dataNac + saidaControle;
-//        var tempstr;
-//        if (data.getDay() == 1 || data.getDay() == 0) {
-//            tempstr = "<ul>" + acumula(contador, somadorFimSemana, gcap, todos) + "</ul>"; 
-//            str += tempstr;
-//            contador += somadorFimSemana;
-//        } else {
-//            tempstr = "<ul>" + acumula(contador, somadorDiaNormal, gcap, todos) + "</ul>"; 
-//            str += tempstr;
-//            contador += somadorDiaNormal;
-//        }
-//        addDays(data, 1);
-//        dia += 1;
-//        str += "</li>";
-//     }
-//     str += "</ul><p>&nbsp;</p><p>&nbsp;</p>";
-//     return str;
-
-// }
-
-// function somaTodosGCapAteLivro (gcap,livroabrev)
-// {
-//   var soma=0;
-//   var indice=0;
-//   while(gcap[indice].livro != livroabrev)
-//   {
-//      soma += parseInt(gcap[indice].capitulos);
-//      indice++;
-//   }
-//   return soma;
-// }
-
-// function buscarIndiceGCap(gcap, livro)
-// {
-//    var indice=0;
-//    while ( gcap[indice].livro != livro ) indice++; 
-//    return indice;
-// }
-
-// function somaTodosGCapVetor (gcap,vetor)
-// {
-//   var soma=0;
-//   var indice=0;
-
-//   for (var i=0; i < vetor.length; i++)
-//   {
-//      soma += parseInt(gcap[buscarIndiceGCap(gcap, vetor[i])].capitulos);
-//   }
-
-//   return soma;
-// }
 
 
 

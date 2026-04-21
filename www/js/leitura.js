@@ -215,7 +215,7 @@ function preselecao(va, livro, cap, verso)
   // openNav();
      document.getElementById("cmpBtn").style.display = "block";
      //TODO: remover o IF quando tiver os dados de analise sintatica hebraico 
-     console.log("Estou no novo mandamento?", estouNoNovoMandamento(), getLivroMain());
+     //console.log("Estou no novo mandamento?", estouNoNovoMandamento(), getLivroMain());
      if (estouNoNovoMandamento()) {
         document.getElementById("graBtn").style.display = "block";
      }
