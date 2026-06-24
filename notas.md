@@ -46,3 +46,82 @@ Aplicativo mobile para leitura e estudo da Bíblia com múltiplas versões (BLV,
 - Integração com Espírito de Profecia no momento da leitura
 - Melhoria nas cores do menu com base na cor do cabeçalho
 - Finalizar base de dados dos livros do Espírito de Profecia
+
+---
+
+## Como Executar a Refatoração — SQLite
+
+### Arquivos de Planejamento
+
+- **`refatoracao_plano_implementacao.md`** — contém o schema final, o mapeamento de funções antigas para novas, o algoritmo de chave `SIGLA_CAP_VER`, a estratégia de 2 bancos (biblia.db + user.db), e o fluxo detalhado de cada componente.
+- **`tasks.md`** — checklist com 15 fases numeradas na ordem de execução.
+
+### Método de Trabalho
+
+1. **Escolha uma fase em `tasks.md`** e mova-a de `[ ]` para `[X]` à medida que avança.
+2. **Antes de começar cada fase**, leia a seção correspondente em `refatoracao_plano_implementacao.md` para entender o design e as funções envolvidas.
+3. **Após concluir uma fase**, execute `npm test` (e/ou `cordova run android`) para validar que nada quebrou.
+4. **Commits**: faça um commit por fase (ou por arquivo, se a fase for grande) com mensagem descritiva. Ex: `git commit -m "fase2: sqlite.js com getVerse/getChapter/searchText"`.
+5. **Se encontrar um imprevisto**, atualize este `notas.md` e o `refatoracao_plano_implementacao.md` com a decisão tomada.
+
+### Dependências entre Fases
+
+```
+Fase 1 (build-db.js) → Fase 2 (sqlite.js) → Fase 3 (util.js)
+                                              Fase 4 (main.js)
+                                              Fase 5 (leitura.js)
+                                              Fase 6 (pesquisando.js)
+                                              Fase 7 (banco.js)
+                                              Fase 8 (listando.js)
+                                              Fase 9 (planos.js)
+                                              Fase 10 (planosEstudo.js)
+                                              Fase 11 (configuracao.js)
+                            Fase 12 (index.js, inicialização)
+                            Fase 13 (index.html, remover scripts)
+                Fase 14 (testes) — pode começar em paralelo após Fase 2
+                Fase 15 (build) — última
+```
+
+### Roteiro Resumido
+
+| Fase | Ação | Arquivo(s) Principal(is) |
+|------|------|--------------------------|
+| 1 | Gerar biblia.db | `scripts/build-db.js` |
+| 2 | Criar sqlite.js | `www/js/sqlite.js` |
+| 3 | Refatorar extração | `www/js/util.js` |
+| 4 | Refatorar main | `www/js/main.js` |
+| 5 | Refatorar leitura | `www/js/leitura.js` |
+| 6 | Refatorar busca | `www/js/pesquisando.js` |
+| 7 | Refatorar banco | `www/js/banco.js` |
+| 8 | Refatorar listagem | `www/js/listando.js` |
+| 9 | Refatorar planos | `www/js/planos.js` |
+| 10 | Refatorar planosEstudo | `www/js/planosEstudo.js` |
+| 11 | Refatorar config | `www/js/configuracao.js` |
+| 12 | Inicialização | `www/js/index.js` |
+| 13 | Remover scripts antigos | `www/index.html` |
+| 14 | Testes | — |
+| 15 | Build | — |
+
+### Comandos Úteis
+
+```bash
+# Gerar banco (Fase 1)
+node scripts/build-db.js
+
+# Rodar testes
+npm test
+
+# Build Android
+cordova build android
+
+# Testar no dispositivo
+cordova run android --device
+```
+
+### Observações Importantes
+
+- O banco `biblia.db` (read-only) deve estar em `www/assets/` e ser copiado pelo `config.xml` com `<resource-file src="www/assets/biblia.db" target="assets/biblia.db" />`.
+- O banco `user.db` (gravável) é criado na primeira execução em `cordova.file.dataDirectory`.
+- A migração do LocalStorage é irreversível: após migrar, as chaves antigas são deletadas. Faça backup ou mantenha um flag `migrated` no SQLite.
+- O script `build-db.js` usa `better-sqlite3` (Node.js, não Cordova). Ele é executado apenas durante o desenvolvimento para gerar o banco que será embarcado no app.
+- O app em runtime usa `cordova-sqlite-storage` (plugin Cordova), que é um SQLite nativo para Android/iOS.
