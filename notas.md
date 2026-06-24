@@ -55,6 +55,7 @@ Aplicativo mobile para leitura e estudo da Bíblia com múltiplas versões (BLV,
 
 - **`refatoracao_plano_implementacao.md`** — contém o schema final, o mapeamento de funções antigas para novas, o algoritmo de chave `SIGLA_CAP_VER`, a estratégia de 2 bancos (biblia.db + user.db), e o fluxo detalhado de cada componente.
 - **`tasks.md`** — checklist com 15 fases numeradas na ordem de execução.
+- foi criado um branch separado para refatoração
 
 ### Método de Trabalho
 
