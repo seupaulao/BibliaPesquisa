@@ -17,13 +17,13 @@ Aplicativo mobile para leitura e estudo da Bíblia com múltiplas versões (BLV,
 - [ ] **Código monolítico**: toda a interface está em um único `index.html` (~822 linhas). A lógica está distribuída em vários JS sem módulos ou namespaces. Variáveis globais abundantes (`book`, `cap`, `vers`, etc.) em `main.js`.
 - [ ] **Dados bíblicos inline**: as traduções (BLV, WEB, etc.) são arquivos JS com objetos enormes em memória. Ex: `blv.js`, `web.js`, `nvi.js`, `aa.js`, `acf.js`, `kjv.js` contêm capítulos inteiros. Isso aumenta o consumo de memória e o tempo de carregamento inicial.
 - [ ] **Segurança**: Content-Security-Policy está comentado no HTML (`<!--meta http-equiv...-->`). O app acessa `*` (todas origens) via `config.xml`.
-- [ ] **Plugins desatualizados**: `cordova-plugin-admob-free` (substituído pelo `admob-plus-cordova` que já está nas dependências). Há código comentado referente ao AdMob antigo.
+- [x] **Plugins desatualizados**: `cordova-plugin-admob-free` removido, `cordova-android` atualizado para `^15.0.0`, `cordova` para `^13.0.0`. `admob-plus-cordova` mantido como única lib de ads.
 - [ ] **Código legado comentado**: muitas funções antigas comentadas ou inacabadas (ex: `abrirTelaSermonetes`, `abrirTelaMensagens`, `abrirTelaTextoOriginalLeitura`, funções TR/WLC).
-- [ ] **Sem testes**: `npm test` apenas echoa "no test specified". Não há estrutura de testes unitários ou de integração.
+- [x] **Sem testes**: `npm test` agora executa `vitest run`. Testes criados em `tests/util.test.js` (6 testes para funções utilitárias e parser YAML).
 - [ ] **Dicionário incompleto**: `base1.js` e `base2.js` contêm o dicionário bíblico. Se a palavra não for encontrada, exibe "Palavra não encontrada na base de dados".
 - [ ] **Tradução manual**: textos em pt-BR e en-US são definidos manualmente em `configuracao.js` (~200 linhas de `innerHTML`). Sem i18n library.
 - [ ] **Análise sintática limitada**: a função `carregarSintaxe()` só funciona para grego (NT). Hebraico (AT) está pendente ("TODO").
-- [ ] **Propagandas**: o `index.js` gerencia banner e rewarded ad. O vídeo recompensado esconde o banner por 3 minutos. O banner é exibido novamente após esse período.
+- [x] **Propagandas**: `index.js` refatorado com configuração externa via `config.yaml`. Cooldown alterado de 3 para 120 minutos (definido em `config.yaml:noBannerCooldownMinutes`).
 - [ ] **Espírito de Profecia**: o arquivo `planos.js` contém URLs para egwwritings.org e um plano anual que integra leitura bíblica com os livros de Ellen White. A funcionalidade de "link direto para EGW" nos versos ainda está em TODO no `readme.txt`.
 
 ## Roadmap (do readme.txt)

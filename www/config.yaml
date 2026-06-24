@@ -1,0 +1,11 @@
+# Configuração de Propagandas (AdMob)
+ads:
+  banner:
+    enabled: true
+    adUnitId: "ca-app-pub-3940256099942544/6300978111"
+    position: "bottom"
+  rewarded:
+    enabled: true
+    adUnitId: "ca-app-pub-3940256099942544/5224354917"
+  # Tempo sem banner após assistir vídeo recompensado (em minutos)
+  noBannerCooldownMinutes: 120
